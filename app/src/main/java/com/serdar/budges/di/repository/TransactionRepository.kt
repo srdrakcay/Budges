@@ -1,7 +1,7 @@
 package com.serdar.budges.di.repository
 
 import androidx.lifecycle.LiveData
-import com.serdar.budges.di.data.Transaction
+import com.serdar.budges.data.Transaction
 import com.serdar.budges.service.TransactionDao
 
 class TransactionRepository (private val transactionDao: TransactionDao) {

@@ -72,7 +72,7 @@ dependencies {
     implementation 'com.tbuonomo:dotsindicator:4.3'
 
     //bar chart
-
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     //lotti
     implementation "com.airbnb.android:lottie:3.7.1"
 

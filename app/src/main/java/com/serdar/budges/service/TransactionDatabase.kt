@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.serdar.budges.di.data.Transaction
+import com.serdar.budges.data.Transaction
 
 @Database(entities = [Transaction::class], version =2, exportSchema = false)
 

@@ -4,39 +4,34 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.serdar.budges.R
+import com.serdar.budges.adapter.BudgesAdapter
+import com.serdar.budges.data.Transaction
 import com.serdar.budges.databinding.FragmentNotificationsBinding
+import com.serdar.budges.model.TransactionViewModel
 
 class NotificationsFragment : Fragment() {
 
-    private var _binding: FragmentNotificationsBinding? = null
+    private lateinit var binding: FragmentNotificationsBinding
+    private val transactionViewModel by lazy { TransactionViewModel(requireActivity().application) }
+    private lateinit var transaction: List<Transaction>
+    private lateinit var budgesAdapter: BudgesAdapter
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
-
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        binding=FragmentNotificationsBinding.inflate(layoutInflater)
+        binding.buttonBill.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_notifications_to_bottomBillFragment)
         }
-        return root
+        return binding.root
+
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
     }
 }

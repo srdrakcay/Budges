@@ -4,11 +4,10 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.serdar.budges.di.data.Transaction
+import com.serdar.budges.data.Transaction
 import com.serdar.budges.di.repository.TransactionRepository
 import com.serdar.budges.service.TransactionDatabase
 import kotlinx.coroutines.Dispatchers
-
 import kotlinx.coroutines.launch
 
 class TransactionViewModel(application: Application) : AndroidViewModel(application) {

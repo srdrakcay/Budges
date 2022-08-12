@@ -9,9 +9,8 @@ import androidx.lifecycle.Observer
 import androidx.viewpager2.widget.ViewPager2
 import com.serdar.budges.R
 import com.serdar.budges.databinding.FragmentIncomeBinding
-import com.serdar.budges.di.adapter.BudgesAdapter
+import com.serdar.budges.adapter.BudgesAdapter
 import com.serdar.budges.model.TransactionViewModel
-import java.util.ArrayList
 
 
 class IncomeFragment : Fragment() {
@@ -24,10 +23,9 @@ class IncomeFragment : Fragment() {
     ): View? {
         binding = FragmentIncomeBinding.inflate(layoutInflater)
         val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPages)
-        viewPager?.currentItem =1
+        viewPager?.currentItem = 1
         budgesAdapter = BudgesAdapter()
         return binding.root
-
 
     }
 
@@ -39,7 +37,6 @@ class IncomeFragment : Fragment() {
 
             val budgetAmount = transactionList.filter { it.amount > 0 }.sumOf { it.amount }
             binding.income.text = "$ %.2f".format(budgetAmount)
-
 
 
         })

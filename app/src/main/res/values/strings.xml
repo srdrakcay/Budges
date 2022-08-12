@@ -2,7 +2,7 @@
     <string name="app_name" translatable="false">Budges</string>
     <string name="title_home" translatable="false">Home</string>
     <string name="title_dashboard" translatable="false">Dashboard</string>
-    <string name="title_notifications" translatable="false">Notifications</string>
+    <string name="title_notifications" translatable="false">Bills</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="transaction">Transaction</string>

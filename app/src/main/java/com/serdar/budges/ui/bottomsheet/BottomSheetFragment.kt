@@ -12,8 +12,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.serdar.budges.R
 import com.serdar.budges.databinding.FragmentBottomSheetBinding
-import com.serdar.budges.di.adapter.BudgesAdapter
-import com.serdar.budges.di.data.Transaction
+import com.serdar.budges.data.Transaction
 import com.serdar.budges.model.TransactionViewModel
 
 
@@ -48,8 +47,6 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         }
 
     }
-
-
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return BottomSheetDialog(
             requireContext(),

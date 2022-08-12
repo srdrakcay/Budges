@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.viewpager2.widget.ViewPager2
 import com.serdar.budges.R
 import com.serdar.budges.databinding.FragmentTotalBalanceBinding
-import com.serdar.budges.di.adapter.BudgesAdapter
+import com.serdar.budges.adapter.BudgesAdapter
 import com.serdar.budges.model.TransactionViewModel
 
 

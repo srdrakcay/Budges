@@ -12,24 +12,21 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.ViewPager
 import com.serdar.budges.R
 import com.serdar.budges.databinding.FragmentHomeBinding
-import com.serdar.budges.di.adapter.BudgesAdapter
-import com.serdar.budges.di.adapter.ViewPagerAdapter
-import com.serdar.budges.di.data.Transaction
+import com.serdar.budges.adapter.BudgesAdapter
+import com.serdar.budges.adapter.ViewPagerAdapter
+import com.serdar.budges.data.Transaction
 import com.serdar.budges.model.TransactionViewModel
 import com.serdar.budges.service.TransactionDatabase
 import com.serdar.budges.ui.fragments.ExpanseFragment
 import com.serdar.budges.ui.fragments.IncomeFragment
 import com.serdar.budges.ui.fragments.TotalBalanceFragment
-import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 
 class HomeFragment : Fragment() {
     private val transactionViewModel by lazy { TransactionViewModel(requireActivity().application) }
     private lateinit var binding: FragmentHomeBinding
     private lateinit var transaction: List<Transaction>
-    private lateinit var db: TransactionDatabase
     private lateinit var budgesAdapter: BudgesAdapter
 
     override fun onCreateView(
@@ -37,8 +34,6 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         transaction = arrayListOf()
-
-
         budgesAdapter = BudgesAdapter()
         return binding.root
 
@@ -53,12 +48,12 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_navigation_home_to_bottomSheetFragment)
         }
         val budgesAdapter = BudgesAdapter()
+
         binding.rvView.layoutManager = LinearLayoutManager(requireContext())
         binding.rvView.adapter = budgesAdapter
 
         transactionViewModel.readAllData.observe(requireActivity(), Observer { transactionList ->
             budgesAdapter.setDataTransaction(transactionList)
-
 
             val itemTouchHelper =
                 object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
@@ -76,7 +71,6 @@ class HomeFragment : Fragment() {
                         transactionViewModel.deleteTransaction(transactionList[position])
                     }
 
-
                 }
             val swipeHelper = ItemTouchHelper(itemTouchHelper)
             swipeHelper.attachToRecyclerView(binding.rvView)
@@ -89,7 +83,6 @@ class HomeFragment : Fragment() {
             TotalBalanceFragment(),
             IncomeFragment(),
             ExpanseFragment()
-
         )
         val adapter = ViewPagerAdapter(
             fragmentList,
@@ -107,14 +100,12 @@ class HomeFragment : Fragment() {
             TotalBalanceFragment(),
             IncomeFragment(),
             ExpanseFragment()
-
         )
         val adapter = ViewPagerAdapter(
             fragmentList,
             requireActivity().supportFragmentManager,
             lifecycle
         )
-
         val dotsIndicator = binding.dotsIndicator
         val viewPager = binding.viewPages
         viewPager.adapter = adapter

@@ -2,7 +2,7 @@ package com.serdar.budges.service
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.serdar.budges.di.data.Transaction
+import com.serdar.budges.data.Transaction
 
 @Dao
 interface TransactionDao {

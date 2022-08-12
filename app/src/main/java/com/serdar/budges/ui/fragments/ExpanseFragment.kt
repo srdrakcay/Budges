@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.viewpager2.widget.ViewPager2
-import com.serdar.budges.R
 import com.serdar.budges.databinding.FragmentExpanseBinding
-import com.serdar.budges.di.adapter.BudgesAdapter
+import com.serdar.budges.adapter.BudgesAdapter
 import com.serdar.budges.model.TransactionViewModel
 
 

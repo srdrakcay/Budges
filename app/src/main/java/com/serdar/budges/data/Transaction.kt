@@ -1,4 +1,4 @@
-package com.serdar.budges.di.data
+package com.serdar.budges.data
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo
