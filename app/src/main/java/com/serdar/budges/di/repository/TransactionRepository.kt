@@ -1,8 +1,8 @@
 package com.serdar.budges.di.repository
 
 import androidx.lifecycle.LiveData
-import com.serdar.budges.data.Transaction
-import com.serdar.budges.service.TransactionDao
+import com.serdar.budges.data.transaction.Transaction
+import com.serdar.budges.service.transaction.TransactionDao
 
 class TransactionRepository (private val transactionDao: TransactionDao) {
 
@@ -18,4 +18,7 @@ class TransactionRepository (private val transactionDao: TransactionDao) {
     suspend fun deleteTransaction(transaction: Transaction){
         transactionDao.deleteTransaction(transaction)
     }
+
+
+
 }

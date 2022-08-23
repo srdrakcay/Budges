@@ -4,9 +4,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.serdar.budges.data.Transaction
+import com.serdar.budges.data.transaction.Transaction
 import com.serdar.budges.di.repository.TransactionRepository
-import com.serdar.budges.service.TransactionDatabase
+import com.serdar.budges.service.transaction.TransactionDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -22,11 +22,13 @@ class TransactionViewModel(application: Application) : AndroidViewModel(applicat
         repository = TransactionRepository(transactionDao)
         readAllData = transactionDao.readAllData()
 
+
     }
 
     fun addTransaction(transaction: Transaction) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addTransaction(transaction)
+
         }
     }
 
@@ -41,4 +43,9 @@ class TransactionViewModel(application: Application) : AndroidViewModel(applicat
             repository.deleteTransaction(transaction)
         }
     }
+
+
+
+
+
 }

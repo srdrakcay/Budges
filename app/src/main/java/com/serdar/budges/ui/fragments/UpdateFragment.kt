@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.serdar.budges.R
 import com.serdar.budges.databinding.FragmentUpdateBinding
-import com.serdar.budges.data.Transaction
+import com.serdar.budges.data.transaction.Transaction
 import com.serdar.budges.model.TransactionViewModel
 
 class UpdateFragment : Fragment() {
@@ -31,9 +31,9 @@ class UpdateFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        binding.transactionName.setText(args.currentItem.transaction)
-        binding.transactionAmounts.setText(args.currentItem.amount.toString())
-        binding.transactionDesc.setText(args.currentItem.description)
+        binding.transactionName.setText(args.current.transaction)
+        binding.transactionAmounts.setText(args.current.amount.toString())
+        binding.transactionDesc.setText(args.current.description)
 
 
         binding.updateButton.setOnClickListener {
@@ -52,7 +52,7 @@ class UpdateFragment : Fragment() {
         val transactionDesc = binding.transactionDesc.text.toString()
 
         val updateShopping = Transaction(
-            args.currentItem.id,
+            args.current.id,
             transactionName,
             transactionAmount.toDouble(),
             transactionDesc
@@ -77,7 +77,7 @@ class UpdateFragment : Fragment() {
 
     private fun deleteShoppingData() {
 
-        transactionViewModel.deleteTransaction(args.currentItem)
+        transactionViewModel.deleteTransaction(args.current)
         findNavController().navigate(R.id.action_updateFragment_to_navigation_home)
     }
 

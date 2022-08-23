@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.github.mikephil.charting.animation.Easing
@@ -41,20 +40,19 @@ class DashboardFragment : Fragment() {
             val expanseAmount = totalAmount - budgetAmount
 
 
-            val listPie = ArrayList<PieEntry>()
-            listPie.add(PieEntry(100f, "Total Amount"))
-            listPie.add(PieEntry(40f, "Income"))
-            listPie.add(PieEntry(50f, "Expanse"))
+            val pieList = ArrayList<PieEntry>()
+            pieList.add(PieEntry(totalAmount.toFloat(), "Total Amount"))
+            pieList.add(PieEntry(budgetAmount.toFloat(), "Income"))
+            pieList.add(PieEntry(expanseAmount.toFloat(), "Expanse"))
 
             val colors = ArrayList<Int>()
             colors.add(Color.BLUE)
-            colors.add(Color.BLACK)
+            colors.add(Color.GREEN)
             colors.add(Color.RED)
-            totalAmount.toFloat().apply { colors.add((Color.BLACK)) }
 
-            val pieDataSet = PieDataSet(listPie, "")
+            val pieDataSet = PieDataSet(pieList, "")
             pieDataSet.colors = colors
-            pieDataSet.sliceSpace=3f
+            pieDataSet.sliceSpace = 3f
 
             val pieData = PieData(pieDataSet)
             binding.pieChart.data = pieData
@@ -62,6 +60,8 @@ class DashboardFragment : Fragment() {
             binding.pieChart.isDrawHoleEnabled = true
             binding.pieChart.description.isEnabled = false
             binding.pieChart.setEntryLabelColor(R.color.black)
+            binding.pieChart.setCenterTextColor(R.color.black)
+            binding.pieChart.setUsePercentValues(true)
             binding.pieChart.animateY(1400, Easing.EaseInOutQuad)
 
 

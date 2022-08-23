@@ -12,7 +12,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.serdar.budges.R
 import com.serdar.budges.databinding.FragmentBottomSheetBinding
-import com.serdar.budges.data.Transaction
+import com.serdar.budges.data.transaction.Transaction
 import com.serdar.budges.model.TransactionViewModel
 
 

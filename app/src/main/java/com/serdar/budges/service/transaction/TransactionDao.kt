@@ -1,8 +1,8 @@
-package com.serdar.budges.service
+package com.serdar.budges.service.transaction
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.serdar.budges.data.Transaction
+import com.serdar.budges.data.transaction.Transaction
 
 @Dao
 interface TransactionDao {
@@ -13,7 +13,6 @@ interface TransactionDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun addTransaction(transaction: Transaction):Long
 
-
     @Update
     fun updateTransaction(transaction: Transaction)
 
@@ -22,4 +21,7 @@ interface TransactionDao {
 
     @Query("DELETE FROM transactions ")
     fun deleteAllTransaction()
+
+
+
 }

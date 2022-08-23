@@ -9,7 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.serdar.budges.R
-import com.serdar.budges.data.Transaction
+import com.serdar.budges.data.transaction.Transaction
 import com.serdar.budges.ui.home.HomeFragmentDirections
 
 class BudgesAdapter :

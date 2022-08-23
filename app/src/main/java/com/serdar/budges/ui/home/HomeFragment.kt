@@ -16,9 +16,8 @@ import com.serdar.budges.R
 import com.serdar.budges.databinding.FragmentHomeBinding
 import com.serdar.budges.adapter.BudgesAdapter
 import com.serdar.budges.adapter.ViewPagerAdapter
-import com.serdar.budges.data.Transaction
+import com.serdar.budges.data.transaction.Transaction
 import com.serdar.budges.model.TransactionViewModel
-import com.serdar.budges.service.TransactionDatabase
 import com.serdar.budges.ui.fragments.ExpanseFragment
 import com.serdar.budges.ui.fragments.IncomeFragment
 import com.serdar.budges.ui.fragments.TotalBalanceFragment
