@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,8 +16,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.serdar.budges.R
 import com.serdar.budges.databinding.FragmentHomeBinding
 import com.serdar.budges.adapter.BudgesAdapter
+import com.serdar.budges.adapter.CryptoAdapter
+import com.serdar.budges.adapter.HomeCryptoAdapter
 import com.serdar.budges.adapter.ViewPagerAdapter
 import com.serdar.budges.data.transaction.Transaction
+import com.serdar.budges.di.repository.CryptoRepository
+import com.serdar.budges.model.CryptoViewModel
+import com.serdar.budges.model.CryptoViewModelFactory
 import com.serdar.budges.model.TransactionViewModel
 import com.serdar.budges.ui.fragments.ExpanseFragment
 import com.serdar.budges.ui.fragments.IncomeFragment
@@ -27,13 +33,25 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var transaction: List<Transaction>
     private lateinit var budgesAdapter: BudgesAdapter
-
+    private lateinit var viewModel: CryptoViewModel
+    private val adapter by lazy { HomeCryptoAdapter() }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         transaction = arrayListOf()
         budgesAdapter = BudgesAdapter()
+        adapterSetup()
+        val repository = CryptoRepository()
+        val cryptoViewModelFactory = CryptoViewModelFactory(repository)
+
+        viewModel = ViewModelProvider(this, cryptoViewModelFactory).get(CryptoViewModel::class.java)
+        viewModel.getData()
+        viewModel.myResponse.observe(requireActivity(), Observer {
+            adapter.setDatas(it)
+
+        })
+
         return binding.root
 
     }
@@ -109,6 +127,11 @@ class HomeFragment : Fragment() {
         val viewPager = binding.viewPages
         viewPager.adapter = adapter
         dotsIndicator.setViewPager2(viewPager)
+
+    }
+    private fun adapterSetup(){
+        binding.cryview.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+        binding.cryview.adapter = adapter
 
     }
 }

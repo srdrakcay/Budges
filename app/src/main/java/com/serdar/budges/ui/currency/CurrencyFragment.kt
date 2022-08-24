@@ -18,38 +18,28 @@ import com.serdar.budges.model.CryptoViewModelFactory
 class CurrencyFragment : Fragment() {
     private lateinit var binding: FragmentCurrencyBinding
     private lateinit var viewModel: CryptoViewModel
-    private val adapter by lazy {CryptoAdapter()}
+    private val adapter by lazy { CryptoAdapter() }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentCurrencyBinding.inflate(layoutInflater)
         setupAdapter()
         val repository = CryptoRepository()
-        val cryptoViewModelFactory=CryptoViewModelFactory(repository)
+        val cryptoViewModelFactory = CryptoViewModelFactory(repository)
 
-        viewModel=ViewModelProvider(this,cryptoViewModelFactory).get(CryptoViewModel::class.java)
+        viewModel = ViewModelProvider(this, cryptoViewModelFactory).get(CryptoViewModel::class.java)
         viewModel.getData()
         viewModel.myResponse.observe(requireActivity(), Observer {
             adapter.setData(it)
 
         })
-
         return binding.root
-
     }
 
-
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-
-
-    }
-
-    private fun setupAdapter(){
+    private fun setupAdapter() {
         binding.crView.layoutManager = LinearLayoutManager(requireContext())
         binding.crView.adapter = adapter
     }
+
 
 }

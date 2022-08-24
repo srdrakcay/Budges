@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.serdar.budges.R
 import com.serdar.budges.data.crypto.Data
+import java.math.RoundingMode
 
 class CryptoAdapter:RecyclerView.Adapter<CryptoAdapter.CryptoViewHolder>() {
 
@@ -29,7 +30,8 @@ class CryptoAdapter:RecyclerView.Adapter<CryptoAdapter.CryptoViewHolder>() {
         holder.symbol.text=myList[position].symbol.toString()
         holder.name.text=myList[position].name.toString()
         holder.price.text=myList[position].priceUsd.toString()
-        holder.macap.text=myList[position].rank.toString()
+        holder.price.text=myList[position].priceUsd.toBigDecimal().setScale(1, RoundingMode.UP).toString()
+        holder.macap.text=myList[position].marketCapUsd.toBigDecimal().setScale(1, RoundingMode.UP).toString()
 
     }
 
