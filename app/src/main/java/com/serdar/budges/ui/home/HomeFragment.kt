@@ -23,6 +23,7 @@ import com.serdar.budges.di.repository.CryptoRepository
 import com.serdar.budges.model.CryptoViewModel
 import com.serdar.budges.model.CryptoViewModelFactory
 import com.serdar.budges.model.TransactionViewModel
+import com.serdar.budges.ui.components.BalanceDialog
 import com.serdar.budges.ui.fragments.ExpanseFragment
 import com.serdar.budges.ui.fragments.IncomeFragment
 import com.serdar.budges.ui.fragments.TotalBalanceFragment
@@ -70,6 +71,16 @@ class HomeFragment : Fragment() {
 
         transactionViewModel.readAllData.observe(requireActivity(), Observer { transactionList ->
             budgesAdapter.setDataTransaction(transactionList)
+
+            val totalAmount = transactionList.sumOf { it.amount }
+
+                if(totalAmount>1000){
+                    dialog()
+                }else if (totalAmount>2500) {
+                    dialog()
+                }
+
+
 
             val itemTouchHelper =
                 object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
@@ -132,6 +143,11 @@ class HomeFragment : Fragment() {
     private fun adapterSetup() {
         binding.cryview.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
         binding.cryview.adapter = adapter
+
+    }
+    private fun dialog(){
+        val dialog=BalanceDialog().show(parentFragmentManager,"dialog")
+
 
     }
 }

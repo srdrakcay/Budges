@@ -19,7 +19,6 @@ class HomeCryptoAdapter : RecyclerView.Adapter<HomeCryptoAdapter.HomeViewHolder>
         val price = itemview.findViewById<TextView>(R.id.priceUs)
         val symbolView = itemview.findViewById<ImageView>(R.id.symbolview)
 
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
