@@ -7,7 +7,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.serdar.budges.R
 import com.serdar.budges.databinding.ActivityHomeBinding
-import com.serdar.budges.databinding.ActivityMainBinding
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding

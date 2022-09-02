@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.serdar.budges.R
 import com.serdar.budges.databinding.FragmentHomeBinding
 import com.serdar.budges.adapter.BudgesAdapter
-import com.serdar.budges.adapter.CryptoAdapter
 import com.serdar.budges.adapter.HomeCryptoAdapter
 import com.serdar.budges.adapter.ViewPagerAdapter
 import com.serdar.budges.data.transaction.Transaction
@@ -129,7 +128,8 @@ class HomeFragment : Fragment() {
         dotsIndicator.setViewPager2(viewPager)
 
     }
-    private fun adapterSetup(){
+
+    private fun adapterSetup() {
         binding.cryview.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
         binding.cryview.adapter = adapter
 

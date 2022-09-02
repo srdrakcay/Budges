@@ -35,15 +35,20 @@ class DashboardFragment : Fragment() {
         transactionViewModel.readAllData.observe(requireActivity(), Observer { transactionList ->
             budgesAdapter.setDataTransaction(transactionList)
 
+            //room içine kaydettiğim dataları burada hesaplatıp pasta diliminde gösteriyorum
             val totalAmount = transactionList.sumOf { it.amount }
             val budgetAmount = transactionList.filter { it.amount > 0 }.sumOf { it.amount }
             val expanseAmount = totalAmount - budgetAmount
 
 
+
+
+           // pieList.add(PieEntry(100f, "Total Amount"))
             val pieList = ArrayList<PieEntry>()
             pieList.add(PieEntry(totalAmount.toFloat(), "Total Amount"))
             pieList.add(PieEntry(budgetAmount.toFloat(), "Income"))
             pieList.add(PieEntry(expanseAmount.toFloat(), "Expanse"))
+
 
             val colors = ArrayList<Int>()
             colors.add(Color.BLUE)
@@ -52,7 +57,10 @@ class DashboardFragment : Fragment() {
 
             val pieDataSet = PieDataSet(pieList, "")
             pieDataSet.colors = colors
-            pieDataSet.sliceSpace = 3f
+
+
+            pieDataSet.sliceSpace = 0f
+
 
             val pieData = PieData(pieDataSet)
             binding.pieChart.data = pieData
@@ -61,9 +69,9 @@ class DashboardFragment : Fragment() {
             binding.pieChart.description.isEnabled = false
             binding.pieChart.setEntryLabelColor(R.color.black)
             binding.pieChart.setCenterTextColor(R.color.black)
+            binding.pieChart.setCenterTextSize(40f)
             binding.pieChart.setUsePercentValues(true)
             binding.pieChart.animateY(1400, Easing.EaseInOutQuad)
-
 
         })
 
