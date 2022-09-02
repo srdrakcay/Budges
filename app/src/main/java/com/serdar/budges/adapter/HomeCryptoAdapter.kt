@@ -46,7 +46,7 @@ class HomeCryptoAdapter : RecyclerView.Adapter<HomeCryptoAdapter.HomeViewHolder>
             "ADA" -> holder.symbolView.setImageResource(R.drawable.cardano)
             "XRP" -> holder.symbolView.setImageResource(R.drawable.xrp)
             "SOL" -> holder.symbolView.setImageResource(R.drawable.solana)
-            "DOGE" -> holder.symbolView.setImageResource(R.drawable.doge)
+            "DOT" -> holder.symbolView.setImageResource(R.drawable.polkadot)
 
 
         }
