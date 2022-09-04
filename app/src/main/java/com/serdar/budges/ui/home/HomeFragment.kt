@@ -75,10 +75,9 @@ class HomeFragment : Fragment() {
             budgesAdapter.setDataTransaction(transactionList)
 
             val totalAmount = transactionList.sumOf { it.amount }
-                if(totalAmount>2500){
-                    dialog()
-                }
-
+            if (totalAmount > 2500) {
+                dialog()
+            }
 
 
             val itemTouchHelper =
@@ -144,21 +143,19 @@ class HomeFragment : Fragment() {
         binding.cryview.adapter = adapter
 
     }
-    private fun dialog(){
-        val firstrun:Boolean = requireActivity().getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("firstrun", true);
-        if (firstrun){
 
-            val dialog=BalanceDialog().show(parentFragmentManager,"dialog")
-            //... Display the dialog message here ...
-            // Save the state
+    private fun dialog() {
+        val firstrun: Boolean = requireActivity().getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+            .getBoolean("firstrun", true);
+        if (firstrun) {
+
+            val dialog = BalanceDialog().show(parentFragmentManager, "dialog")
             requireActivity().getSharedPreferences("PREFERENCE", MODE_PRIVATE)
                 .edit()
                 .putBoolean("firstrun", false)
-                .commit();
+                .apply()
         }
     }
-
-
 
 
 }
