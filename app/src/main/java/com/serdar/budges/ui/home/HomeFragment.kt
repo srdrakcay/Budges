@@ -1,5 +1,7 @@
 package com.serdar.budges.ui.home
 
+import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -73,10 +75,7 @@ class HomeFragment : Fragment() {
             budgesAdapter.setDataTransaction(transactionList)
 
             val totalAmount = transactionList.sumOf { it.amount }
-
-                if(totalAmount>1000){
-                    dialog()
-                }else if (totalAmount>2500) {
+                if(totalAmount>2500){
                     dialog()
                 }
 
@@ -146,8 +145,20 @@ class HomeFragment : Fragment() {
 
     }
     private fun dialog(){
-        val dialog=BalanceDialog().show(parentFragmentManager,"dialog")
+        val firstrun:Boolean = requireActivity().getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("firstrun", true);
+        if (firstrun){
 
-
+            val dialog=BalanceDialog().show(parentFragmentManager,"dialog")
+            //... Display the dialog message here ...
+            // Save the state
+            requireActivity().getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .edit()
+                .putBoolean("firstrun", false)
+                .commit();
+        }
     }
+
+
+
+
 }

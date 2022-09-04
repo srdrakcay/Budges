@@ -60,10 +60,6 @@ class BudgesAdapter :
         }
         holder.transactions.text = transaction.transaction
 
-        val color = (Math.random() * 16777215).toInt() or (0xFF shl 24)
-
-        holder.desc.setTextColor(color)
-
 
     }
 
