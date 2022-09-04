@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragments.ExpanseFragment"
-    android:background="#F5F5F5">
+    android:background="#90FFCCFF">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="48dp"
         android:text="Expanse"
         android:textColor="#151515"
         android:textSize="16sp"
@@ -24,10 +24,10 @@
         android:id="@+id/expanse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="#151515"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -36,7 +36,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="45dp"
-        android:src="@drawable/expanse"
+        android:src="@drawable/expanses"
         app:layout_constraintEnd_toStartOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.783"
         app:layout_constraintStart_toStartOf="parent"

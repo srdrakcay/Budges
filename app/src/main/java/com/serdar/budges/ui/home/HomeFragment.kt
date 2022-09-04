@@ -1,5 +1,7 @@
 package com.serdar.budges.ui.home
 
+import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -16,7 +18,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.serdar.budges.R
 import com.serdar.budges.databinding.FragmentHomeBinding
 import com.serdar.budges.adapter.BudgesAdapter
-import com.serdar.budges.adapter.CryptoAdapter
 import com.serdar.budges.adapter.HomeCryptoAdapter
 import com.serdar.budges.adapter.ViewPagerAdapter
 import com.serdar.budges.data.transaction.Transaction
@@ -24,6 +25,7 @@ import com.serdar.budges.di.repository.CryptoRepository
 import com.serdar.budges.model.CryptoViewModel
 import com.serdar.budges.model.CryptoViewModelFactory
 import com.serdar.budges.model.TransactionViewModel
+import com.serdar.budges.ui.components.BalanceDialog
 import com.serdar.budges.ui.fragments.ExpanseFragment
 import com.serdar.budges.ui.fragments.IncomeFragment
 import com.serdar.budges.ui.fragments.TotalBalanceFragment
@@ -71,6 +73,13 @@ class HomeFragment : Fragment() {
 
         transactionViewModel.readAllData.observe(requireActivity(), Observer { transactionList ->
             budgesAdapter.setDataTransaction(transactionList)
+
+            val totalAmount = transactionList.sumOf { it.amount }
+                if(totalAmount>2500){
+                    dialog()
+                }
+
+
 
             val itemTouchHelper =
                 object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
@@ -129,9 +138,27 @@ class HomeFragment : Fragment() {
         dotsIndicator.setViewPager2(viewPager)
 
     }
-    private fun adapterSetup(){
+
+    private fun adapterSetup() {
         binding.cryview.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
         binding.cryview.adapter = adapter
 
     }
+    private fun dialog(){
+        val firstrun:Boolean = requireActivity().getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("firstrun", true);
+        if (firstrun){
+
+            val dialog=BalanceDialog().show(parentFragmentManager,"dialog")
+            //... Display the dialog message here ...
+            // Save the state
+            requireActivity().getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .edit()
+                .putBoolean("firstrun", false)
+                .commit();
+        }
+    }
+
+
+
+
 }

@@ -49,20 +49,16 @@ class BudgesAdapter :
         if (transaction.amount >= 0) {
             holder.amount.text = "+$%.2f".format(transaction.amount)
             holder.amount.setTextColor(ContextCompat.getColor(context, R.color.green))
-            holder.amountView.setImageResource(R.drawable.income)
+            holder.amountView.setImageResource(R.drawable.profits)
 
 
         } else {
             holder.amount.text = "-$%.2f".format(Math.abs(transaction.amount))
             holder.amount.setTextColor(ContextCompat.getColor(context, R.color.red))
-            holder.amountView.setImageResource(R.drawable.expanse)
+            holder.amountView.setImageResource(R.drawable.expansion)
 
         }
         holder.transactions.text = transaction.transaction
-
-        val color = (Math.random() * 16777215).toInt() or (0xFF shl 24)
-
-        holder.desc.setTextColor(color)
 
 
     }

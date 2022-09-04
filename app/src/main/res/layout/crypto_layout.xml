@@ -29,6 +29,7 @@
                 android:layout_marginBottom="32dp"
                 android:text="TextView"
                 android:textSize="12sp"
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -42,6 +43,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="32dp"
                 android:text="TextView"
+                android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -55,6 +57,7 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="32dp"
                 android:text="TextView"
+                android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView6"
@@ -72,6 +75,17 @@
                 app:layout_constraintVertical_bias="0.481"
                 app:srcCompat="@drawable/lines" />
 
+            <ImageView
+                android:id="@+id/where"
+                android:layout_width="30dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="300dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.466"
+                app:srcCompat="@drawable/up" />
+
             <TextView
                 android:id="@+id/symbol"
                 android:layout_width="wrap_content"
@@ -79,6 +93,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="32dp"
+                android:textColor="@color/black"
                 android:text="BTC"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"

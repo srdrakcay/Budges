@@ -4,5 +4,4 @@ import com.serdar.budges.data.crypto.Data
 
 data class ApiResponse (
     val data : List<Data>
-        ) {
-}
+        )
