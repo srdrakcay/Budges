@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -26,13 +27,17 @@ class CurrencyFragment : Fragment() {
         setupAdapter()
         val repository = CryptoRepository()
         val cryptoViewModelFactory = CryptoViewModelFactory(repository)
+        try {
+            viewModel = ViewModelProvider(this, cryptoViewModelFactory).get(CryptoViewModel::class.java)
+            viewModel.getData()
+            viewModel.myResponse.observe(requireActivity(), Observer {
+                adapter.setData(it)
 
-        viewModel = ViewModelProvider(this, cryptoViewModelFactory).get(CryptoViewModel::class.java)
-        viewModel.getData()
-        viewModel.myResponse.observe(requireActivity(), Observer {
-            adapter.setData(it)
+            })
+        }catch (exception: Exception){
+            Toast.makeText(requireContext(), "No Internet", Toast.LENGTH_SHORT).show()
+        }
 
-        })
         return binding.root
     }
 

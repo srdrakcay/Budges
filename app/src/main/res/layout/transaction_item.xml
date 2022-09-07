@@ -37,7 +37,7 @@
                     android:id="@+id/transaction"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginStart="80dp"
                     android:layout_marginTop="5dp"
                     android:text="TextView"
                     android:textColor="@color/black"
@@ -50,10 +50,10 @@
                     android:id="@+id/amountView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="60dp"
+                    android:layout_marginStart="32dp"
                     android:src="@drawable/expanse"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                 </ImageView>
@@ -62,20 +62,19 @@
                     android:id="@+id/amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
                     android:text="TextView"
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/amountView"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginStart="80dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:text="TextView"

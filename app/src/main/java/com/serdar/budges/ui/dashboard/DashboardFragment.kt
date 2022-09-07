@@ -1,5 +1,6 @@
 package com.serdar.budges.ui.dashboard
 
+
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import com.serdar.budges.R
 import com.serdar.budges.adapter.BudgesAdapter
 import com.serdar.budges.databinding.FragmentDashboardBinding
 import com.serdar.budges.model.TransactionViewModel
+import kotlin.collections.ArrayList
 
 class DashboardFragment : Fragment() {
     private val transactionViewModel by lazy { TransactionViewModel(requireActivity().application) }
@@ -32,6 +34,7 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         transactionViewModel.readAllData.observe(requireActivity(), Observer { transactionList ->
             budgesAdapter.setDataTransaction(transactionList)
 
@@ -41,9 +44,7 @@ class DashboardFragment : Fragment() {
             val expanseAmount = totalAmount - budgetAmount
 
 
-
-
-           // pieList.add(PieEntry(100f, "Total Amount"))
+            // pieList.add(PieEntry(100f, "Total Amount"))
             val pieList = ArrayList<PieEntry>()
             pieList.add(PieEntry(totalAmount.toFloat(), "Total Amount"))
             pieList.add(PieEntry(budgetAmount.toFloat(), "Income"))
