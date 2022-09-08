@@ -5,11 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
+import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.serdar.budges.R
 import com.serdar.budges.data.transaction.Transaction
+import com.serdar.budges.ui.dashboard.DashboardFragmentDirections
 import com.serdar.budges.ui.home.HomeFragmentDirections
 
 class BudgesAdapter :
@@ -21,6 +25,7 @@ class BudgesAdapter :
         val transactions = view.findViewById<TextView>(R.id.transaction)
         val amount = view.findViewById<TextView>(R.id.amount)
         val amountView = view.findViewById<ImageView>(R.id.amountView)
+        val card =view.findViewById<CardView>(R.id.delete)
 
         fun bind(transaction: Transaction) {
             transactions.setText(transaction.transaction.toString())
@@ -34,16 +39,23 @@ class BudgesAdapter :
 
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.transaction_item, parent, false)
+
         return TransactionHolder(view)
     }
 
     override fun onBindViewHolder(holder: TransactionHolder, position: Int) {
         val transaction = transactionList[position]
         holder.bind(transaction)
-        holder.itemView.setOnClickListener {
-            val action = HomeFragmentDirections.actionNavigationHomeToUpdateFragment(transaction)
-            holder.itemView.findNavController().navigate(action)
-        }
+
+
+            holder.card.setOnClickListener {
+                val action = HomeFragmentDirections.actionNavigationHomeToUpdateFragment(transaction)
+                holder.card.findNavController().navigate(action)
+            }
+
+
+
+
         val context = holder.amount.context
 
         if (transaction.amount >= 0) {

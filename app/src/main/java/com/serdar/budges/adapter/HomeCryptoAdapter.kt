@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.serdar.budges.R
 import com.serdar.budges.data.crypto.Data
@@ -32,6 +33,7 @@ class HomeCryptoAdapter : RecyclerView.Adapter<HomeCryptoAdapter.HomeViewHolder>
         holder.price.text = dataList[position].priceUsd.toString()
         holder.price.text =
             dataList[position].priceUsd.toBigDecimal().setScale(1, RoundingMode.UP).toString()
+        holder.price.text ="$%.2f".format(dataList[position].priceUsd.toDouble())
 
         when (dataList[position].symbol) {
 

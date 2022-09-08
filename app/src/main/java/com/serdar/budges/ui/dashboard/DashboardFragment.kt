@@ -9,12 +9,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.github.mikephil.charting.animation.Easing
-import com.github.mikephil.charting.data.*
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+import com.google.android.material.tabs.TabLayoutMediator
 import com.serdar.budges.R
 import com.serdar.budges.adapter.BudgesAdapter
+import com.serdar.budges.adapter.ViewPagerDash
 import com.serdar.budges.databinding.FragmentDashboardBinding
 import com.serdar.budges.model.TransactionViewModel
-import kotlin.collections.ArrayList
 
 class DashboardFragment : Fragment() {
     private val transactionViewModel by lazy { TransactionViewModel(requireActivity().application) }
@@ -33,8 +36,12 @@ class DashboardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        pieChart()
+        tabLayout()
 
+    }
 
+    private fun pieChart() {
         transactionViewModel.readAllData.observe(requireActivity(), Observer { transactionList ->
             budgesAdapter.setDataTransaction(transactionList)
 
@@ -75,9 +82,22 @@ class DashboardFragment : Fragment() {
             binding.pieChart.animateY(1400, Easing.EaseInOutQuad)
 
         })
-
-
     }
 
+    private fun tabLayout() {
+        val adapter = ViewPagerDash(requireActivity().supportFragmentManager, lifecycle)
+
+        binding.dashView.adapter = adapter
+        TabLayoutMediator(binding.tabLayout, binding.dashView) { tab, position ->
+            when (position) {
+                0 -> {
+                    tab.text = "İncome"
+                }
+                1 -> {
+                    tab.text = "Expanse"
+                }
+            }
+        }.attach()
+    }
 
 }

@@ -55,8 +55,8 @@ class UpdateFragment : Fragment() {
             args.current.id,
             transactionName,
             transactionAmount.toDouble(),
-            transactionDesc
-        )
+            transactionDesc, income = "İncome",
+        expanse = "Expanse")
         transactionViewModel.updateTransaction(updateShopping)
         findNavController().navigate(R.id.action_updateFragment_to_navigation_home)
 

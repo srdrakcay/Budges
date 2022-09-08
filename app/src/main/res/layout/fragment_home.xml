@@ -123,7 +123,7 @@
             android:id="@+id/cryview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="40dp" />
+            android:layout_marginBottom="90dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

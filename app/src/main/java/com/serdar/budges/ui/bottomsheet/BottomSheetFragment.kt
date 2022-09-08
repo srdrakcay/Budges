@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -18,6 +20,8 @@ import com.serdar.budges.model.TransactionViewModel
 
 class BottomSheetFragment : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentBottomSheetBinding
+    private val comes = arrayListOf<String>()
+    private var comess = ""
     private val transactionViewModel by lazy { TransactionViewModel(requireActivity().application) }
 
     override fun onCreateView(
@@ -30,6 +34,17 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val facultiesAdapter =
+            ArrayAdapter(requireContext(), R.layout.dropdown, comes)
+        comes.add("İNCOME")
+        comes.add("EXPANSE")
+
+        binding.txtFaculty.setOnItemClickListener { _, _, position, _ ->
+            comess = comes[position]
+        }
+        binding.txtFaculty.setAdapter(facultiesAdapter)
+
 
         binding.transactionName.addTextChangedListener {
             if (it!!.count() > 0)
@@ -60,15 +75,22 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         val description = binding.transactionDesc.text.toString()
         val amount = binding.transactionAmounts.text.toString().toDoubleOrNull()
 
+
+
         if (label.isEmpty())
             binding.productName.error = "Please enter a valid label"
         else if (amount == null)
             binding.transactionAmount.error = "Please enter a valid amount"
+        else if (comes.isEmpty())
+            Toast.makeText(requireContext(), "Please Chose Transaction Type", Toast.LENGTH_SHORT).show()
+
         else {
-            val transaction = Transaction(0, label, amount, description)
+            val transaction = Transaction(0, label, amount, description, expanse="Expanse", income = "İncome")
             transactionViewModel.addTransaction(transaction)
             findNavController().navigate(R.id.action_bottomSheetFragment_to_navigation_home)
+
         }
+
     }
 
 }

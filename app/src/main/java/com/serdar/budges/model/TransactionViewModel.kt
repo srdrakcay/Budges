@@ -14,6 +14,10 @@ class TransactionViewModel(application: Application) : AndroidViewModel(applicat
 
 
     val readAllData: LiveData<List<Transaction>>
+    val readExpanseData: LiveData<List<Transaction>>
+    val readIncomeData: LiveData<List<Transaction>>
+
+
     private val repository: TransactionRepository
 
 
@@ -21,6 +25,9 @@ class TransactionViewModel(application: Application) : AndroidViewModel(applicat
         val transactionDao = TransactionDatabase.getDatabase(application).transactionDao()
         repository = TransactionRepository(transactionDao)
         readAllData = transactionDao.readAllData()
+        readExpanseData=transactionDao.getExpanseList()
+        readIncomeData=transactionDao.getIncomeList()
+
 
 
     }

@@ -17,6 +17,7 @@ data class Transaction(
     @ColumnInfo(name = "transaction") val transaction: String,
     @ColumnInfo(name = "amaount") val amount: Double = 0.0,
     @ColumnInfo(name = "desciption") val description: String,
-
+    @ColumnInfo(name = "expanse") val expanse: String,
+    @ColumnInfo(name = "income") val income: String,
     ) : Parcelable
 
