@@ -14,10 +14,8 @@
             android:id="@+id/action_navigation_home_to_bottomSheetFragment"
             app:destination="@id/bottomSheetFragment" />
         <action
-            android:id="@+id/action_navigation_home_to_updateFragment"
-            app:destination="@id/updateFragment"
-            app:popUpTo="@id/navigation_home"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_navigation_home_to_balanceDialog"
+            app:destination="@id/balanceDialog" />
     </fragment>
 
     <fragment
@@ -44,18 +42,15 @@
             android:id="@+id/action_bottomSheetFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </dialog>
-    <fragment
-        android:id="@+id/updateFragment"
-        android:name="com.serdar.budges.ui.fragments.UpdateFragment"
-        android:label="fragment_update"
-        tools:layout="@layout/fragment_update" >
+    <dialog
+        android:id="@+id/balanceDialog"
+        android:name="com.serdar.budges.ui.components.BalanceDialog"
+        android:label="BalanceDialog" >
         <action
-            android:id="@+id/action_updateFragment_to_navigation_home"
-            app:destination="@id/navigation_home"
-            app:popUpTo="@id/navigation_home"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_balanceDialog_to_navigation_home"
+            app:destination="@id/navigation_home" />
         <argument
-            android:name="current"
+            android:name="currentItem"
             app:argType="com.serdar.budges.data.transaction.Transaction" />
-    </fragment>
+    </dialog>
 </navigation>

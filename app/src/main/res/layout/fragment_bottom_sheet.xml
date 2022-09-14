@@ -64,7 +64,7 @@
         app:layout_constraintTop_toTopOf="@+id/productName">
 
         <AutoCompleteTextView
-            android:id="@+id/txt_faculty"
+            android:id="@+id/txtDrop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
@@ -157,8 +157,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="20sp"
-            android:background="@drawable/botton_bacground"
-            android:text="ADD TRANSACTİON" />
+            android:background="@drawable/button_bacground"
+            android:text="ADD TRANSACTİON"
+            app:cornerRadius="6dp" />
     </LinearLayout>
 
     <ImageView

@@ -2,7 +2,7 @@ package com.serdar.budges.util
 
 class Constants {
 
-    companion object{
+    companion object {
         const val BASE_URL = "https://api.coincap.io/"
 
         const val CHANNEL_ID = "MyTask"

@@ -7,13 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.serdar.budges.R
 import com.serdar.budges.data.transaction.Transaction
-import com.serdar.budges.ui.dashboard.DashboardFragmentDirections
+import com.serdar.budges.ui.components.BalanceDialog
 import com.serdar.budges.ui.home.HomeFragmentDirections
 
 class BudgesAdapter :
@@ -25,12 +23,12 @@ class BudgesAdapter :
         val transactions = view.findViewById<TextView>(R.id.transaction)
         val amount = view.findViewById<TextView>(R.id.amount)
         val amountView = view.findViewById<ImageView>(R.id.amountView)
-        val card =view.findViewById<CardView>(R.id.delete)
+        val card = view.findViewById<CardView>(R.id.delete)
 
         fun bind(transaction: Transaction) {
-            transactions.setText(transaction.transaction.toString())
-            amount.setText(transaction.amount.toString())
-            desc.setText(transaction.description.toString())
+            transactions.text = transaction.transaction.toString()
+            amount.text = transaction.amount.toString()
+            desc.text = transaction.description.toString()
 
         }
     }
@@ -48,26 +46,25 @@ class BudgesAdapter :
         holder.bind(transaction)
 
 
-            holder.card.setOnClickListener {
-                val action = HomeFragmentDirections.actionNavigationHomeToUpdateFragment(transaction)
-                holder.card.findNavController().navigate(action)
-            }
+        holder.card.setOnClickListener {
+            val action = HomeFragmentDirections.actionNavigationHomeToBalanceDialog(transaction)
+            holder.card.findNavController().navigate(action)
 
-
+        }
 
 
         val context = holder.amount.context
 
-        if (transaction.amount >= 0) {
+        if (transaction.incomeExpanseType == "INCOME") {
             holder.amount.text = "+$%.2f".format(transaction.amount)
             holder.amount.setTextColor(ContextCompat.getColor(context, R.color.green))
-            holder.amountView.setImageResource(R.drawable.profits)
+            holder.amountView.setImageResource(R.drawable.incomesss)
 
 
         } else {
             holder.amount.text = "-$%.2f".format(Math.abs(transaction.amount))
             holder.amount.setTextColor(ContextCompat.getColor(context, R.color.red))
-            holder.amountView.setImageResource(R.drawable.expansion)
+            holder.amountView.setImageResource(R.drawable.expansesss)
 
         }
         holder.transactions.text = transaction.transaction
@@ -86,5 +83,5 @@ class BudgesAdapter :
         this.transactionList = transactionList
         notifyDataSetChanged()
     }
-
+    //val dialog = BalanceDialog().show(parentFragmentManager, "dialog")
 }

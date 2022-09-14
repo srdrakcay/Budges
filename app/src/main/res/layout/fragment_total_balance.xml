@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#90FFCCFF"
-    tools:context=".ui.fragments.TotalBalanceFragment" >
+    android:background="@color/amountBackground"
+    tools:context=".ui.fragments.home.TotalBalanceFragment" >
 
     <TextView
         android:id="@+id/textView"

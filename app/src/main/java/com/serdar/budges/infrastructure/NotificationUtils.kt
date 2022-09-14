@@ -12,7 +12,7 @@ import com.serdar.budges.util.Constants.Companion.CHANNEL_NAME
 
 object NotificationUtils {
 
-    fun bugesNotification(context: Context, title: String, description: String) {
+    fun budgesNotification(context: Context, title: String, description: String) {
         val notificationManager =
             context.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 

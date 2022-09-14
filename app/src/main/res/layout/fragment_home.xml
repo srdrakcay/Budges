@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_background"
+    android:background="@drawable/backround"
     tools:context=".ui.home.HomeFragment">
 
 
@@ -16,7 +16,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16sp"
         android:elevation="10sp"
-        app:cardCornerRadius="15sp"
+        app:cardCornerRadius="5sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -36,13 +36,13 @@
             android:layout_marginStart="150dp"
             android:layout_marginTop="140dp"
             android:layout_marginBottom="16dp"
-            app:dotsColor="#F1B1B1"
+            app:dotsColor="@color/white"
             app:dotsCornerRadius="8dp"
             app:dotsSize="8dp"
             app:dotsSpacing="2dp"
             app:dotsWidthFactor="2.5"
             app:progressMode="true"
-            app:selectedDotColor="@color/red" />
+            app:selectedDotColor="@color/dots" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -80,19 +80,72 @@
         android:layout_width="0dp"
         android:layout_height="250dp"
         android:layout_marginTop="16dp"
+        android:backgroundTint="@color/transactionLine"
         android:elevation="12sp"
-        app:cardCornerRadius="16dp"
+        app:cardCornerRadius="5dp"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/transactionHome">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Transaction"
+                    android:textColor="@color/transactionText"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView11"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="37dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Amount"
+                    android:textColor="@color/transactionText"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Type"
+                    android:textColor="@color/transactionText"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="2dp" />
+
+            android:layout_marginTop="30dp"
+             />
+
     </androidx.cardview.widget.CardView>
 
     <Button
@@ -100,9 +153,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/botton_bacground"
+        android:background="@drawable/button_bacground"
         android:text="@string/add_transact_on"
         app:icon="@drawable/wallet"
         app:iconGravity="textStart"

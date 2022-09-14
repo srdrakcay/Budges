@@ -6,27 +6,31 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.serdar.budges.data.transaction.Transaction
 
-@Database(entities = [Transaction::class], version =3, exportSchema = false)
+@Database(entities = [Transaction::class], version = 3, exportSchema = false)
 
-    abstract class TransactionDatabase: RoomDatabase() {
+abstract class TransactionDatabase : RoomDatabase() {
 
-        abstract fun transactionDao(): TransactionDao
+    abstract fun transactionDao(): TransactionDao
 
-        companion object{
-            @Volatile
-            private var INSTANCE: TransactionDatabase? = null
+    companion object {
+        @Volatile
+        private var INSTANCE: TransactionDatabase? = null
 
-            fun getDatabase(context: Context): TransactionDatabase {
-                val tempInstance= INSTANCE
-                if (tempInstance != null){
-                    return tempInstance
-                }
-                synchronized(this){
-                    val instance = Room.databaseBuilder(context, TransactionDatabase::class.java,"transaction_database").fallbackToDestructiveMigration().build()
-                    INSTANCE =instance
-                    return instance
-                }
+        fun getDatabase(context: Context): TransactionDatabase {
+            val tempInstance = INSTANCE
+            if (tempInstance != null) {
+                return tempInstance
             }
-
+            synchronized(this) {
+                val instance = Room.databaseBuilder(
+                    context,
+                    TransactionDatabase::class.java,
+                    "transaction_database"
+                ).fallbackToDestructiveMigration().build()
+                INSTANCE = instance
+                return instance
+            }
         }
+
     }
+}

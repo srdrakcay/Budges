@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.ExpanseFragment"
-    android:background="#90FFCCFF">
+    tools:context=".ui.fragments.home.ExpanseFragment"
+    android:background="@color/amountBackground">
 
     <TextView
         android:id="@+id/textView"

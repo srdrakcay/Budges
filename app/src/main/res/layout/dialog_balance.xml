@@ -2,15 +2,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginTop="250dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="150dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/amountBackground"
         android:elevation="10dp"
         app:cardCornerRadius="16dp"
         app:cardElevation="12dp"
@@ -21,40 +23,129 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="500dp">
 
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/targetView"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView7"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:lottie_autoPlay="true"
-                app:lottie_loop="true"
-                app:lottie_rawRes="@raw/target" />
-
-
-
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/updateText"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="16dp"
-                android:textStyle="italic"
-                android:textColor="@color/black"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginTop="20dp"
+                android:hint="Transaction"
+                android:paddingLeft="10sp"
+                android:paddingRight="10sp"
+                android:textColorHint="@color/black"
+                app:boxCornerRadiusBottomEnd="10sp"
+                app:boxCornerRadiusBottomStart="8sp"
+                app:boxCornerRadiusTopEnd="8sp"
+                app:boxCornerRadiusTopStart="8sp"
+                app:boxStrokeWidth="0sp"
 
-                android:text="Congratulations, Your Wallet Balance is Very Hıgh"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:counterEnabled="true"
+                app:endIconMode="clear_text"
+                app:hintTextColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/targetView" />
+                app:layout_constraintTop_toBottomOf="@+id/transactionAmount">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/transactionName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FFFFFF"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/transactionAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:hint="Amount"
+                android:paddingLeft="10sp"
+                android:paddingRight="10sp"
+                android:textColorHint="@color/black"
+                app:boxCornerRadiusBottomEnd="10sp"
+                app:boxCornerRadiusBottomStart="8sp"
+                app:boxCornerRadiusTopEnd="8sp"
+                app:boxCornerRadiusTopStart="8sp"
+                app:boxStrokeWidth="0sp"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
+                app:hintTextColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/transactionAmounts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FFFFFF"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:counterMaxLength="20" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/productdesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="Descripsion"
+                android:paddingLeft="10sp"
+                android:paddingRight="10sp"
+                android:textColorHint="@color/black"
+                app:boxCornerRadiusBottomEnd="10sp"
+                app:boxCornerRadiusBottomStart="8sp"
+                app:boxCornerRadiusTopEnd="8sp"
+                app:boxCornerRadiusTopStart="8sp"
+                app:boxStrokeWidth="0sp"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
+                app:hintTextColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/updateText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/transactionDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FFFFFF"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:counterMaxLength="20" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="92dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/productdesc"
+                tools:layout_editor_absoluteX="0dp">
+
+                <Button
+                    android:id="@+id/updateButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/button_bacground"
+                    android:text="UPDATE TRANSACTİON" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/deleteData"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/delete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productdesc" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

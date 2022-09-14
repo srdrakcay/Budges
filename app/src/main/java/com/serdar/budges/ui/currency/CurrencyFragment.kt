@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.serdar.budges.adapter.CryptoAdapter
 import com.serdar.budges.databinding.FragmentCurrencyBinding
 import com.serdar.budges.di.repository.CryptoRepository
-import com.serdar.budges.model.CryptoViewModel
-import com.serdar.budges.model.CryptoViewModelFactory
+import com.serdar.budges.ui.viewmodel.CryptoViewModel
+import com.serdar.budges.ui.viewmodel.CryptoViewModelFactory
 
 
 class CurrencyFragment : Fragment() {
@@ -28,13 +28,14 @@ class CurrencyFragment : Fragment() {
         val repository = CryptoRepository()
         val cryptoViewModelFactory = CryptoViewModelFactory(repository)
         try {
-            viewModel = ViewModelProvider(this, cryptoViewModelFactory).get(CryptoViewModel::class.java)
+            viewModel =
+                ViewModelProvider(this, cryptoViewModelFactory).get(CryptoViewModel::class.java)
             viewModel.getData()
             viewModel.myResponse.observe(requireActivity(), Observer {
                 adapter.setData(it)
 
             })
-        }catch (exception: Exception){
+        } catch (exception: Exception) {
             Toast.makeText(requireContext(), "No Internet", Toast.LENGTH_SHORT).show()
         }
 

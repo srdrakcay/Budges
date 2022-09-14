@@ -16,20 +16,20 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.serdar.budges.R
-import com.serdar.budges.databinding.FragmentHomeBinding
 import com.serdar.budges.adapter.BudgesAdapter
 import com.serdar.budges.adapter.HomeCryptoAdapter
 import com.serdar.budges.adapter.ViewPagerAdapter
 import com.serdar.budges.data.transaction.Transaction
+import com.serdar.budges.databinding.FragmentHomeBinding
 import com.serdar.budges.di.repository.CryptoRepository
 import com.serdar.budges.infrastructure.NotificationUtils
-import com.serdar.budges.model.CryptoViewModel
-import com.serdar.budges.model.CryptoViewModelFactory
-import com.serdar.budges.model.TransactionViewModel
 import com.serdar.budges.ui.components.BalanceDialog
-import com.serdar.budges.ui.fragments.ExpanseFragment
-import com.serdar.budges.ui.fragments.IncomeFragment
-import com.serdar.budges.ui.fragments.TotalBalanceFragment
+import com.serdar.budges.ui.fragments.home.ExpanseFragment
+import com.serdar.budges.ui.fragments.home.IncomeFragment
+import com.serdar.budges.ui.fragments.home.TotalBalanceFragment
+import com.serdar.budges.ui.viewmodel.CryptoViewModel
+import com.serdar.budges.ui.viewmodel.CryptoViewModelFactory
+import com.serdar.budges.ui.viewmodel.TransactionViewModel
 import com.serdar.budges.util.Constants.Companion.DESCRIPTION
 import com.serdar.budges.util.Constants.Companion.TITLE
 
@@ -105,18 +105,7 @@ class HomeFragment : Fragment() {
 
     }
 
-    private fun dialog() {
-        val firstrun: Boolean = requireActivity().getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-            .getBoolean("firstrun", true);
-        if (firstrun) {
 
-            val dialog = BalanceDialog().show(parentFragmentManager, "dialog")
-            requireActivity().getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-                .edit()
-                .putBoolean("firstrun", false)
-                .apply()
-        }
-    }
 
     private fun swipeToDelete() {
         val budgesAdapter = BudgesAdapter()
@@ -124,53 +113,47 @@ class HomeFragment : Fragment() {
         binding.rvView.layoutManager = LinearLayoutManager(requireContext())
         binding.rvView.adapter = budgesAdapter
 
-        try {
-            //reading data and setting data to recyclerview
-            transactionViewModel.readAllData.observe(
-                requireActivity(),
-                Observer { transactionList ->
-                    budgesAdapter.setDataTransaction(transactionList)
+        //reading data and setting data to recyclerview
+        transactionViewModel.readAllData.observe(
+            requireActivity(),
+            Observer { transactionList ->
+                budgesAdapter.setDataTransaction(transactionList)
 
-                    val totalAmount = transactionList.sumOf { it.amount }
-                    if (totalAmount > 2500) {
-                        dialog()
-                    }
-                    if (totalAmount <=0) {
-                        NotificationUtils.bugesNotification(
-                            requireContext(),
-                            TITLE,
-                            DESCRIPTION
-                        )
-                    }
+                val totalAmount = transactionList.sumOf { it.amount }
+                if (totalAmount <= 0) {
+                    NotificationUtils.budgesNotification(
+                        requireContext(),
+                        TITLE,
+                        DESCRIPTION
+                    )
+                }
 
 
-                    val itemTouchHelper =
-                        object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
-                            override fun onMove(
-                                recyclerView: RecyclerView,
-                                viewHolder: RecyclerView.ViewHolder,
-                                target: RecyclerView.ViewHolder
-                            ): Boolean {
-                                return false
-                            }
-
-                            override fun onSwiped(
-                                viewHolder: RecyclerView.ViewHolder,
-                                direction: Int
-                            ) {
-
-                                val position = viewHolder.adapterPosition
-                                transactionViewModel.deleteTransaction(transactionList[position])
-                            }
-
+                val itemTouchHelper =
+                    object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+                        override fun onMove(
+                            recyclerView: RecyclerView,
+                            viewHolder: RecyclerView.ViewHolder,
+                            target: RecyclerView.ViewHolder
+                        ): Boolean {
+                            return false
                         }
-                    val swipeHelper = ItemTouchHelper(itemTouchHelper)
-                    swipeHelper.attachToRecyclerView(binding.rvView)
-                })
-        } catch (exception: Exception) {
-            Toast.makeText(requireContext(), "No internet", Toast.LENGTH_SHORT).show()
-        }
+
+                        override fun onSwiped(
+                            viewHolder: RecyclerView.ViewHolder,
+                            direction: Int
+                        ) {
+
+                            val position = viewHolder.adapterPosition
+                            transactionViewModel.deleteTransaction(transactionList[position])
+                        }
+
+                    }
+                val swipeHelper = ItemTouchHelper(itemTouchHelper)
+                swipeHelper.attachToRecyclerView(binding.rvView)
+            })
     }
+
 
     private fun cryptoData() {
         val repository = CryptoRepository()
@@ -179,11 +162,13 @@ class HomeFragment : Fragment() {
         viewModel = ViewModelProvider(this, cryptoViewModelFactory).get(CryptoViewModel::class.java)
         viewModel.getData()
         viewModel.myResponse.observe(requireActivity(), Observer {
-            adapter.setDatas(it)
-
+            if (it.isEmpty()) {
+                Toast.makeText(requireContext(), "No internet", Toast.LENGTH_SHORT).show()
+            } else {
+                adapter.setDatas(it)
+            }
         })
-
     }
-
 }
+
 

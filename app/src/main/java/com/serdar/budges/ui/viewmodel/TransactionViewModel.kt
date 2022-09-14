@@ -1,4 +1,4 @@
-package com.serdar.budges.model
+package com.serdar.budges.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -25,9 +25,8 @@ class TransactionViewModel(application: Application) : AndroidViewModel(applicat
         val transactionDao = TransactionDatabase.getDatabase(application).transactionDao()
         repository = TransactionRepository(transactionDao)
         readAllData = transactionDao.readAllData()
-        readExpanseData=transactionDao.getExpanseList()
-        readIncomeData=transactionDao.getIncomeList()
-
+        readExpanseData = transactionDao.getExpanseList()
+        readIncomeData = transactionDao.getIncomeList()
 
 
     }
@@ -50,9 +49,6 @@ class TransactionViewModel(application: Application) : AndroidViewModel(applicat
             repository.deleteTransaction(transaction)
         }
     }
-
-
-
 
 
 }

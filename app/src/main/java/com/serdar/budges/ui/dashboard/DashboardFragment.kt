@@ -13,11 +13,10 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.google.android.material.tabs.TabLayoutMediator
-import com.serdar.budges.R
 import com.serdar.budges.adapter.BudgesAdapter
 import com.serdar.budges.adapter.ViewPagerDash
 import com.serdar.budges.databinding.FragmentDashboardBinding
-import com.serdar.budges.model.TransactionViewModel
+import com.serdar.budges.ui.viewmodel.TransactionViewModel
 
 class DashboardFragment : Fragment() {
     private val transactionViewModel by lazy { TransactionViewModel(requireActivity().application) }
@@ -58,13 +57,13 @@ class DashboardFragment : Fragment() {
             pieList.add(PieEntry(expanseAmount.toFloat(), "Expanse"))
 
 
-            val colors = ArrayList<Int>()
-            colors.add(Color.BLUE)
-            colors.add(Color.GREEN)
-            colors.add(Color.RED)
+            val colorSet = ArrayList<Int>()
+            colorSet.add(Color.rgb(255, 107, 107))  //red
+            colorSet.add(Color.rgb(173, 232, 244))  // blue
+            colorSet.add(Color.rgb(216, 243, 220))  // green
 
             val pieDataSet = PieDataSet(pieList, "")
-            pieDataSet.colors = colors
+            pieDataSet.colors = colorSet
 
 
             pieDataSet.sliceSpace = 0f
@@ -72,13 +71,11 @@ class DashboardFragment : Fragment() {
 
             val pieData = PieData(pieDataSet)
             binding.pieChart.data = pieData
-            binding.pieChart.setUsePercentValues(true)
             binding.pieChart.isDrawHoleEnabled = true
             binding.pieChart.description.isEnabled = false
-            binding.pieChart.setEntryLabelColor(R.color.black)
-            binding.pieChart.setCenterTextColor(R.color.black)
-            binding.pieChart.setCenterTextSize(40f)
-            binding.pieChart.setUsePercentValues(true)
+            binding.pieChart.legend.isEnabled = true
+            binding.pieChart.setCenterTextColor(Color.BLACK)
+            binding.pieChart.centerTextRadiusPercent = 0f
             binding.pieChart.animateY(1400, Easing.EaseInOutQuad)
 
         })

@@ -1,21 +1,21 @@
-package com.serdar.budges.ui.fragments
+package com.serdar.budges.ui.fragments.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.viewpager2.widget.ViewPager2
 import com.serdar.budges.R
+import com.serdar.budges.adapter.IncomeAdapter
 import com.serdar.budges.databinding.FragmentIncomeBinding
-import com.serdar.budges.adapter.BudgesAdapter
-import com.serdar.budges.model.TransactionViewModel
+import com.serdar.budges.ui.viewmodel.IncomeDashViewModel
 
 
 class IncomeFragment : Fragment() {
-    private val transactionViewModel by lazy { TransactionViewModel(requireActivity().application) }
-    private lateinit var budgesAdapter: BudgesAdapter
+    private val incomeDashViewModel by lazy { IncomeDashViewModel(requireActivity().application) }
+    private lateinit var incomeAdapter: IncomeAdapter
     private lateinit var binding: FragmentIncomeBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,7 +24,7 @@ class IncomeFragment : Fragment() {
         binding = FragmentIncomeBinding.inflate(layoutInflater)
         val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPages)
         viewPager?.currentItem = 1
-        budgesAdapter = BudgesAdapter()
+        incomeAdapter = IncomeAdapter()
         return binding.root
 
     }
@@ -32,12 +32,11 @@ class IncomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        transactionViewModel.readAllData.observe(requireActivity(), Observer { transactionList ->
-            budgesAdapter.setDataTransaction(transactionList)
+        incomeDashViewModel.readIncome.observe(requireActivity(), Observer { transactionList ->
+            incomeAdapter.setIncome(transactionList)
 
-            val budgetAmount = transactionList.filter { it.amount > 0 }.sumOf { it.amount }
-            binding.income.text = "$ %.2f".format(budgetAmount)
-
+            val incomeAmount = transactionList.sumOf { it.amount }
+            binding.income.text = "$ %.2f".format(incomeAmount)
 
         })
 

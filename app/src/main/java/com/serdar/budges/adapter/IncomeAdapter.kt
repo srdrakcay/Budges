@@ -5,13 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.serdar.budges.R
 import com.serdar.budges.data.transaction.Transaction
 
-class IncomeAdapter: RecyclerView.Adapter<IncomeAdapter.TransactionHolder>() {
+class IncomeAdapter : RecyclerView.Adapter<IncomeAdapter.TransactionHolder>() {
     private var transactionList = emptyList<Transaction>()
 
     class TransactionHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -22,17 +21,19 @@ class IncomeAdapter: RecyclerView.Adapter<IncomeAdapter.TransactionHolder>() {
 
 
         fun bind(transaction: Transaction) {
-            transactions.setText(transaction.transaction.toString())
-            amount.setText(transaction.amount.toString())
-            desc.setText(transaction.description.toString())
+            transactions.text = transaction.transaction.toString()
+            amount.text = transaction.amount.toString()
+            desc.text = transaction.description.toString()
 
         }
 
     }
 
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IncomeAdapter.TransactionHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): IncomeAdapter.TransactionHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.income_item, parent, false)
 
@@ -51,6 +52,7 @@ class IncomeAdapter: RecyclerView.Adapter<IncomeAdapter.TransactionHolder>() {
     override fun getItemCount(): Int {
         return transactionList.size
     }
+
     fun setIncome(transactionList: List<Transaction>) {
         this.transactionList = transactionList
         notifyDataSetChanged()
