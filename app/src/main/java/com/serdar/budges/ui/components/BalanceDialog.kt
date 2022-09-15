@@ -6,7 +6,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
@@ -14,7 +13,6 @@ import androidx.navigation.fragment.navArgs
 import com.serdar.budges.R
 import com.serdar.budges.data.transaction.Transaction
 import com.serdar.budges.databinding.DialogBalanceBinding
-
 import com.serdar.budges.ui.viewmodel.TransactionViewModel
 
 
@@ -27,34 +25,26 @@ class BalanceDialog : DialogFragment() {
 
         val builder = AlertDialog.Builder(requireActivity())
         builder.setView(binding.root)
-
-        val dialog = builder.create()
-        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        return dialog
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         binding.transactionName.setText(args.currentItem.transaction)
         binding.transactionAmounts.setText(args.currentItem.amount.toString())
         binding.transactionDesc.setText(args.currentItem.description)
 
-
         binding.updateButton.setOnClickListener {
             updateItem()
-
         }
         binding.deleteData.setOnClickListener {
             deleteTransactionData()
         }
+        val dialog = builder.create()
+        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
+        return dialog
     }
 
     private fun deleteTransactionData() {
 
-            transactionViewModel.deleteTransaction(args.currentItem)
-            findNavController().navigate(R.id.action_balanceDialog_to_navigation_home)
+        transactionViewModel.deleteTransaction(args.currentItem)
+        findNavController().navigate(R.id.action_balanceDialog_to_navigation_home)
 
     }
 
@@ -63,13 +53,14 @@ class BalanceDialog : DialogFragment() {
         val transactionAmount = binding.transactionAmounts.text.toString()
         val transactionDesc = binding.transactionDesc.text.toString()
 
-        val updateShopping = Transaction(
+        val updateTransaction = Transaction(
             args.currentItem.id,
             transactionName,
             transactionAmount.toDouble(),
-            transactionDesc, args.currentItem.incomeExpanseType
+            transactionDesc,
+            args.currentItem.incomeExpanseType
         )
-        transactionViewModel.updateTransaction(updateShopping)
+        transactionViewModel.updateTransaction(updateTransaction)
         findNavController().navigate(R.id.action_balanceDialog_to_navigation_home)
 
         if (inputCheck(transactionName, transactionAmount, transactionDesc)) {

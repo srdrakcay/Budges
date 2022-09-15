@@ -11,7 +11,6 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.serdar.budges.R
 import com.serdar.budges.data.transaction.Transaction
-import com.serdar.budges.ui.components.BalanceDialog
 import com.serdar.budges.ui.home.HomeFragmentDirections
 
 class BudgesAdapter :
@@ -49,6 +48,7 @@ class BudgesAdapter :
         holder.card.setOnClickListener {
             val action = HomeFragmentDirections.actionNavigationHomeToBalanceDialog(transaction)
             holder.card.findNavController().navigate(action)
+
 
         }
 

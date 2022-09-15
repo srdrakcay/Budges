@@ -33,7 +33,7 @@
         android:name="com.serdar.budges.ui.currency.CurrencyFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_currency" />
-    <dialog
+   <dialog
         android:id="@+id/bottomSheetFragment"
         android:name="com.serdar.budges.ui.bottomsheet.BottomSheetFragment"
         android:label="fragment_bottom_sheet"

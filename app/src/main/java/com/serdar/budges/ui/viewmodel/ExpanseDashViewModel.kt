@@ -1,0 +1,21 @@
+package com.serdar.budges.ui.viewmodel
+
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import com.serdar.budges.data.transaction.Transaction
+import com.serdar.budges.di.repository.TransactionRepository
+import com.serdar.budges.service.transaction.TransactionDatabase
+
+class ExpanseDashViewModel(application: Application) : AndroidViewModel(application) {
+
+    val readExpanseData: LiveData<List<Transaction>>
+
+    private val repository: TransactionRepository
+
+    init {
+        val transactionDao = TransactionDatabase.getDatabase(application).transactionDao()
+        repository = TransactionRepository(transactionDao)
+        readExpanseData = transactionDao.getExpanseList()
+    }
+}
