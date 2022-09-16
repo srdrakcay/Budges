@@ -37,9 +37,8 @@
                     android:layout_marginStart="80dp"
                     android:layout_marginTop="15dp"
                     android:text="TextView"
-                    android:textColor="@color/black"
+                    android:textColor="@color/itemText"
                     android:textSize="13sp"
-
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +49,8 @@
                     android:layout_marginEnd="24dp"
                     android:text="TextView"
                     android:textColor="@color/black"
-                    android:textSize="12sp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

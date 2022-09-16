@@ -75,6 +75,7 @@ class DashboardFragment : Fragment() {
             binding.pieChart.description.isEnabled = false
             binding.pieChart.legend.isEnabled = true
             binding.pieChart.setCenterTextColor(Color.BLACK)
+            binding.pieChart.setEntryLabelColor(Color.BLACK)
             binding.pieChart.centerTextRadiusPercent = 0f
             binding.pieChart.animateY(1400, Easing.EaseInOutQuad)
 

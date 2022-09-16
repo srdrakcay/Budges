@@ -52,7 +52,6 @@
         android:layout_marginStart="20sp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="20dp"
-
         android:orientation="vertical"
         app:boxCornerRadiusBottomStart="8dp"
         app:boxCornerRadiusTopStart="8dp"
@@ -89,8 +88,6 @@
         app:boxStrokeWidth="0sp"
         app:counterEnabled="true"
         app:counterMaxLength="20"
-        app:helperText="İncome:+100 , Expanse :-100"
-        app:helperTextTextColor="@color/black"
         app:hintTextColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -103,7 +100,7 @@
             android:layout_marginStart="12sp"
             android:layout_marginEnd="12sp"
             android:backgroundTint="#FFFFFF"
-            android:inputType="text"
+            android:inputType="number"
             android:textColor="@color/black"
             android:textSize="12sp"
             app:counterMaxLength="20" />
