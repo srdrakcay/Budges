@@ -7,6 +7,7 @@
     android:layout_marginTop="150dp">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -23,13 +24,52 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="500dp">
+            android:layout_height="380dp">
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/amountBackground"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toTopOf="@+id/transactionAmount"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/back"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/deleteData"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/amountBackground"
+                android:src="@drawable/delete"
+                app:layout_constraintBottom_toTopOf="@+id/transactionAmount"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UPDATE"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/transactionAmount"
+                app:layout_constraintEnd_toStartOf="@+id/deleteData"
+                app:layout_constraintStart_toEndOf="@+id/backButton"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/updateText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:hint="Transaction"
                 android:paddingLeft="10sp"
                 android:paddingRight="10sp"
@@ -60,7 +100,7 @@
                 android:id="@+id/transactionAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="70dp"
                 android:hint="Amount"
                 android:paddingLeft="10sp"
                 android:paddingRight="10sp"
@@ -128,24 +168,20 @@
                 app:layout_constraintTop_toBottomOf="@+id/productdesc"
                 tools:layout_editor_absoluteX="0dp">
 
-                <Button
-                    android:id="@+id/updateButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:background="@drawable/button_bacground"
-                    android:text="UPDATE TRANSACTİON" />
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/deleteData"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="32dp"
-                android:src="@drawable/delete"
+            <Button
+                android:id="@+id/updateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/button_bacground"
+                android:backgroundTint="@color/amountBackground"
+                android:text="UPDATE TRANSACTİON"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/productdesc" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
@@ -28,7 +29,9 @@ class BalanceDialog : DialogFragment() {
         binding.transactionName.setText(args.currentItem.transaction)
         binding.transactionAmounts.setText(args.currentItem.amount.toString())
         binding.transactionDesc.setText(args.currentItem.description)
-
+        binding.backButton.setOnClickListener {
+            findNavController().navigate(R.id.action_balanceDialog_to_navigation_home)
+        }
         binding.updateButton.setOnClickListener {
             updateItem()
         }
@@ -38,8 +41,11 @@ class BalanceDialog : DialogFragment() {
         val dialog = builder.create()
         dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
+
+
         return dialog
     }
+
 
     private fun deleteTransactionData() {
 
