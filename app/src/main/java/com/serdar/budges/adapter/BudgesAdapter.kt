@@ -83,5 +83,5 @@ class BudgesAdapter :
         this.transactionList = transactionList
         notifyDataSetChanged()
     }
-    //val dialog = BalanceDialog().show(parentFragmentManager, "dialog")
+
 }
