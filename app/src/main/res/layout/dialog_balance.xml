@@ -13,7 +13,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
-        android:backgroundTint="@color/amountBackground"
+        android:backgroundTint="@color/updateBackground"
         android:elevation="10dp"
         app:cardCornerRadius="16dp"
         app:cardElevation="12dp"
@@ -69,7 +69,7 @@
                 android:id="@+id/updateText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
                 android:hint="Transaction"
                 android:paddingLeft="10sp"
                 android:paddingRight="10sp"
@@ -80,7 +80,6 @@
                 app:boxCornerRadiusTopStart="8sp"
                 app:boxStrokeWidth="0sp"
 
-                app:counterEnabled="true"
                 app:endIconMode="clear_text"
                 app:hintTextColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +90,7 @@
                     android:id="@+id/transactionName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#FFFFFF"
+                    android:backgroundTint="@color/updateAdd"
                     android:textColor="@color/black"
                     android:textSize="12sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -110,8 +109,6 @@
                 app:boxCornerRadiusTopEnd="8sp"
                 app:boxCornerRadiusTopStart="8sp"
                 app:boxStrokeWidth="0sp"
-                app:counterEnabled="true"
-                app:counterMaxLength="20"
                 app:hintTextColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -121,17 +118,17 @@
                     android:id="@+id/transactionAmounts"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#FFFFFF"
+                    android:backgroundTint="@color/updateAdd"
                     android:textColor="@color/black"
                     android:textSize="12sp"
-                    app:counterMaxLength="20" />
+                     />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/productdesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:hint="Descripsion"
                 android:paddingLeft="10sp"
                 android:paddingRight="10sp"
@@ -141,8 +138,6 @@
                 app:boxCornerRadiusTopEnd="8sp"
                 app:boxCornerRadiusTopStart="8sp"
                 app:boxStrokeWidth="0sp"
-                app:counterEnabled="true"
-                app:counterMaxLength="20"
                 app:hintTextColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -153,36 +148,28 @@
                     android:id="@+id/transactionDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#FFFFFF"
+                    android:backgroundTint="@color/updateAdd"
                     android:textColor="@color/black"
-                    android:textSize="12sp"
-                    app:counterMaxLength="20" />
+                    android:textSize="12sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="92dp"
-                android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@+id/productdesc"
-                tools:layout_editor_absoluteX="0dp">
-
-            </LinearLayout>
-
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/updateButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@drawable/button_bacground"
-                android:backgroundTint="@color/amountBackground"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:text="UPDATE TRANSACTİON"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/productdesc" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

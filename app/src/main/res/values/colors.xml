@@ -28,4 +28,12 @@
     <color name="unselected">#CDDDFC</color>
     <color name="chart">#ECF0FA</color>
     <color name="itemText">#6E6D6D</color>
+    <color name="onBoardingText">#518AFE</color>
+    <color name="onBoardingTextSecond">#ADADAE</color>
+    <color name="onBoardingButton">#508AFE</color>
+    <color name="updateBackground">#1E5CD4</color>
+    <color name="updateAdd">#CBD9F5</color>
+
+
+
 </resources>

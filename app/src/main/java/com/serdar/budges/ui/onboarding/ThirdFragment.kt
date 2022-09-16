@@ -37,6 +37,7 @@ private lateinit var binding:FragmentThirdBinding
             val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager)
             viewPager?.currentItem = 1
         }
+
     }
     private fun onBoardingFinished() {
 
