@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.serdar.budges.R
 import com.serdar.budges.data.transaction.Transaction
 
-class ExpanseAdapter : RecyclerView.Adapter<ExpanseAdapter.TransactionHolder>() {
+class ExpenseAdapter : RecyclerView.Adapter<ExpenseAdapter.TransactionHolder>() {
     private var transactionList = emptyList<Transaction>()
 
     class TransactionHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -32,20 +32,20 @@ class ExpanseAdapter : RecyclerView.Adapter<ExpanseAdapter.TransactionHolder>() 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ExpanseAdapter.TransactionHolder {
+    ): ExpenseAdapter.TransactionHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.expanse_item, parent, false)
 
-        return ExpanseAdapter.TransactionHolder(view)
+        return ExpenseAdapter.TransactionHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ExpanseAdapter.TransactionHolder, position: Int) {
+    override fun onBindViewHolder(holder: ExpenseAdapter.TransactionHolder, position: Int) {
         val transaction = transactionList[position]
         holder.bind(transaction)
         val context = holder.amount.context
         holder.amount.text = "-$%.2f".format(transaction.amount)
         holder.amount.setTextColor(ContextCompat.getColor(context, R.color.red))
-        holder.amountView.setImageResource(R.drawable.expansion)
+        holder.amountView.setImageResource(R.drawable.expensesline)
     }
 
     override fun getItemCount(): Int {

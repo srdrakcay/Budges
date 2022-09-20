@@ -46,7 +46,7 @@ class IncomeAdapter : RecyclerView.Adapter<IncomeAdapter.TransactionHolder>() {
         val context = holder.amount.context
         holder.amount.text = "+$%.2f".format(Math.abs(transaction.amount))
         holder.amount.setTextColor(ContextCompat.getColor(context, R.color.green))
-        holder.amountView.setImageResource(R.drawable.profits)
+        holder.amountView.setImageResource(R.drawable.incomeline)
     }
 
     override fun getItemCount(): Int {

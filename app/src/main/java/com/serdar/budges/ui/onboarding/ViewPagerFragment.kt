@@ -7,13 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.serdar.budges.R
 import com.serdar.budges.adapter.OnBoardingAdapter
-import com.serdar.budges.adapter.ViewPagerAdapter
 import com.serdar.budges.databinding.FragmentViewPagerBinding
-import com.serdar.budges.ui.fragments.home.ExpanseFragment
-import com.serdar.budges.ui.fragments.home.IncomeFragment
-import com.serdar.budges.ui.fragments.home.TotalBalanceFragment
 
 
 class ViewPagerFragment : Fragment() {

@@ -144,7 +144,7 @@
         android:textColor="@color/white"
         android:background="@drawable/button_bacground"
         android:text="@string/add_transact_on"
-        app:icon="@drawable/wallet"
+        app:icon="@drawable/currency"
         app:iconGravity="textStart"
         app:layout_constraintBottom_toTopOf="@+id/cryview"
         app:layout_constraintEnd_toEndOf="parent"
@@ -164,7 +164,6 @@
             android:id="@+id/rvView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_alignParentTop="true"
             android:layout_marginTop="8dp" />
     </RelativeLayout>

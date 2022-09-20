@@ -6,21 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import com.serdar.budges.adapter.ExpanseAdapter
-import com.serdar.budges.databinding.FragmentExpanseBinding
-import com.serdar.budges.ui.viewmodel.ExpanseDashViewModel
+import com.serdar.budges.adapter.ExpenseAdapter
+import com.serdar.budges.databinding.FragmentExpenseBinding
+import com.serdar.budges.ui.viewmodel.ExpenseDashViewModel
 
 
-class ExpanseFragment : Fragment() {
-    private val expanseDashViewModel by lazy { ExpanseDashViewModel(requireActivity().application) }
-    private lateinit var expanseAdapter: ExpanseAdapter
-    private lateinit var binding: FragmentExpanseBinding
+class ExpenseFragment : Fragment() {
+    private val expenseDashViewModel by lazy { ExpenseDashViewModel(requireActivity().application) }
+    private lateinit var expenseAdapter: ExpenseAdapter
+    private lateinit var binding: FragmentExpenseBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentExpanseBinding.inflate(layoutInflater)
-        expanseAdapter = ExpanseAdapter()
+        binding = FragmentExpenseBinding.inflate(layoutInflater)
+        expenseAdapter = ExpenseAdapter()
 
         return binding.root
     }
@@ -29,10 +29,10 @@ class ExpanseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        expanseDashViewModel.readExpanseData.observe(
+        expenseDashViewModel.readExpenseData.observe(
             requireActivity(),
             Observer { transactionList ->
-                expanseAdapter.setExpanse(transactionList)
+                expenseAdapter.setExpanse(transactionList)
 
                 val expanseAmount = transactionList.sumOf { it.amount }
                 binding.expanse.text = "$ %.2f".format(expanseAmount)

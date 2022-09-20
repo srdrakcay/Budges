@@ -22,10 +22,10 @@ interface TransactionDao {
     @Query("DELETE FROM transactions ")
     fun deleteAllTransaction()
 
-    @Query("SELECT * FROM transactions WHERE incomeExpanseType = 'EXPANSE' ")
-    fun getExpanseList(): LiveData<List<Transaction>>
+    @Query("SELECT * FROM transactions WHERE incomeExpenseType = 'EXPENSE' ")
+    fun getExpenseList(): LiveData<List<Transaction>>
 
-    @Query("SELECT * FROM transactions WHERE incomeExpanseType = 'INCOME' ")
+    @Query("SELECT * FROM transactions WHERE incomeExpenseType = 'INCOME' ")
     fun getIncomeList(): LiveData<List<Transaction>>
 
 

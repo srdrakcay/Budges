@@ -7,15 +7,15 @@ import com.serdar.budges.data.transaction.Transaction
 import com.serdar.budges.di.repository.TransactionRepository
 import com.serdar.budges.service.transaction.TransactionDatabase
 
-class ExpanseDashViewModel(application: Application) : AndroidViewModel(application) {
+class ExpenseDashViewModel(application: Application) : AndroidViewModel(application) {
 
-    val readExpanseData: LiveData<List<Transaction>>
+    val readExpenseData: LiveData<List<Transaction>>
 
     private val repository: TransactionRepository
 
     init {
         val transactionDao = TransactionDatabase.getDatabase(application).transactionDao()
         repository = TransactionRepository(transactionDao)
-        readExpanseData = transactionDao.getExpanseList()
+        readExpenseData = transactionDao.getExpenseList()
     }
 }

@@ -16,7 +16,6 @@ class FirstFragment : Fragment() {
 
     private lateinit var binding: FragmentFirstBinding
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

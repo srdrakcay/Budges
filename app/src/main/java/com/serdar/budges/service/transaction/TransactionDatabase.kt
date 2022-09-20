@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.serdar.budges.data.transaction.Transaction
 
-@Database(entities = [Transaction::class], version = 3, exportSchema = false)
+@Database(entities = [Transaction::class], version = 1, exportSchema = false)
 
 abstract class TransactionDatabase : RoomDatabase() {
 

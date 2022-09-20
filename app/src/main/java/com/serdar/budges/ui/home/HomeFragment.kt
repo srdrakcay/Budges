@@ -1,6 +1,4 @@
 package com.serdar.budges.ui.home
-
-import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -23,8 +21,7 @@ import com.serdar.budges.data.transaction.Transaction
 import com.serdar.budges.databinding.FragmentHomeBinding
 import com.serdar.budges.di.repository.CryptoRepository
 import com.serdar.budges.infrastructure.NotificationUtils
-import com.serdar.budges.ui.components.BalanceDialog
-import com.serdar.budges.ui.fragments.home.ExpanseFragment
+import com.serdar.budges.ui.fragments.home.ExpenseFragment
 import com.serdar.budges.ui.fragments.home.IncomeFragment
 import com.serdar.budges.ui.fragments.home.TotalBalanceFragment
 import com.serdar.budges.ui.viewmodel.CryptoViewModel
@@ -60,15 +57,13 @@ class HomeFragment : Fragment() {
         binding.sheetDialog.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_home_to_bottomSheetFragment)
         }
-
-
     }
 
     private fun viewPager() {
         val fragmentList = arrayListOf<Fragment>(
             TotalBalanceFragment(),
             IncomeFragment(),
-            ExpanseFragment()
+            ExpenseFragment()
         )
         val adapter = ViewPagerAdapter(
             fragmentList,
@@ -85,7 +80,7 @@ class HomeFragment : Fragment() {
         val fragmentList = arrayListOf<Fragment>(
             TotalBalanceFragment(),
             IncomeFragment(),
-            ExpanseFragment()
+            ExpenseFragment()
         )
         val adapter = ViewPagerAdapter(
             fragmentList,

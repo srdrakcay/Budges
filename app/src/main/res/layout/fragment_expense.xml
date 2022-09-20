@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.home.ExpanseFragment"
+    tools:context=".ui.fragments.home.ExpenseFragment"
     android:background="@color/amountBackground">
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="48dp"
-        android:text="Expanse"
+        android:text="EXPENSES"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -50,7 +50,7 @@
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
-            android:src="@drawable/expanses">
+            android:src="@drawable/expenses">
 
         </ImageView>
     </androidx.cardview.widget.CardView>

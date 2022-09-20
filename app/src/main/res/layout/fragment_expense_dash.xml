@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backround"
-    tools:context=".ui.fragments.dashboard.ExpanseDashFragment">
+    tools:context=".ui.fragments.dashboard.ExpenseDashFragment">
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/dashExpanse"
+        android:id="@+id/dashExpense"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"

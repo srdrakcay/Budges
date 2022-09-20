@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.serdar.budges.ui.fragments.dashboard.ExpanseDashFragment
+import com.serdar.budges.ui.fragments.dashboard.ExpenseDashFragment
 import com.serdar.budges.ui.fragments.dashboard.IncomeDashFragment
 
 class ViewPagerDash(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
@@ -20,7 +20,7 @@ class ViewPagerDash(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
                 IncomeDashFragment()
             }
             1 -> {
-                ExpanseDashFragment()
+                ExpenseDashFragment()
             }
             else -> {
                 Fragment()

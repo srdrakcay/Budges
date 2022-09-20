@@ -41,7 +41,7 @@
         <action
             android:id="@+id/action_bottomSheetFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
-    </dialog>
+   </dialog>
     <dialog
         android:id="@+id/balanceDialog"
         android:name="com.serdar.budges.ui.components.BalanceDialog"

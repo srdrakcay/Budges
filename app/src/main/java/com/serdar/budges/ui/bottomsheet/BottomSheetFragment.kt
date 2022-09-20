@@ -38,7 +38,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         val facultiesAdapter =
             ArrayAdapter(requireContext(), R.layout.dropdown, comes)
         comes.add("INCOME")
-        comes.add("EXPANSE")
+        comes.add("EXPENSE")
 
         binding.txtDrop.setOnItemClickListener { _, _, position, _ ->
             comess = comes[position]

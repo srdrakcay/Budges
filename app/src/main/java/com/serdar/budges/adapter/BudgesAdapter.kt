@@ -55,19 +55,22 @@ class BudgesAdapter :
 
         val context = holder.amount.context
 
-        if (transaction.incomeExpanseType == "INCOME") {
+        if (transaction.incomeExpenseType == "INCOME") {
             holder.amount.text = "+$%.2f".format(transaction.amount)
             holder.amount.setTextColor(ContextCompat.getColor(context, R.color.green))
-            holder.amountView.setImageResource(R.drawable.incomesss)
+            holder.amountView.setImageResource(R.drawable.incomeline)
+            holder.desc.setTextColor(ContextCompat.getColor(context, R.color.green))
 
 
         } else {
             holder.amount.text = "-$%.2f".format(Math.abs(transaction.amount))
             holder.amount.setTextColor(ContextCompat.getColor(context, R.color.red))
-            holder.amountView.setImageResource(R.drawable.expansesss)
+            holder.amountView.setImageResource(R.drawable.expensesline)
+            holder.desc.setTextColor(ContextCompat.getColor(context, R.color.red))
 
         }
         holder.transactions.text = transaction.transaction
+
 
 
     }

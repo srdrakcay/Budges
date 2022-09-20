@@ -1,10 +1,13 @@
 package com.serdar.budges.adapter
 
+
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.serdar.budges.R
@@ -21,6 +24,7 @@ class CryptoAdapter : RecyclerView.Adapter<CryptoAdapter.CryptoViewHolder>() {
         val macap = itemview.findViewById<TextView>(R.id.maCap)
         val name = itemview.findViewById<TextView>(R.id.currency)
         val where = itemview.findViewById<ImageView>(R.id.where)
+        val graph = itemview.findViewById<ImageView>(R.id.graphic)
 
     }
 
@@ -38,14 +42,16 @@ class CryptoAdapter : RecyclerView.Adapter<CryptoAdapter.CryptoViewHolder>() {
         holder.price.text =
             myList[position].priceUsd.toBigDecimal().setScale(1, RoundingMode.UP).toString()
         holder.macap.text =
-            myList[position].changePercent24Hr.toBigDecimal().setScale(1, RoundingMode.UP)
-                .toString()
+            myList[position].changePercent24Hr.toBigDecimal().setScale(1, RoundingMode.UP).toString()
         if (myList[position].changePercent24Hr > 0.toString()) {
             holder.macap.setTextColor(ContextCompat.getColor(context, R.color.green))
             holder.where.setImageResource(R.drawable.up)
+            holder.graph.setImageResource(R.drawable.ups)
+
         } else {
             holder.macap.setTextColor(ContextCompat.getColor(context, R.color.red))
             holder.where.setImageResource(R.drawable.down)
+            holder.graph.setImageResource(R.drawable.downs)
         }
     }
 

@@ -47,14 +47,14 @@ class DashboardFragment : Fragment() {
             //room içine kaydettiğim dataları burada hesaplatıp pasta diliminde gösteriyorum
             val totalAmount = transactionList.sumOf { it.amount }
             val budgetAmount = transactionList.filter { it.amount > 0 }.sumOf { it.amount }
-            val expanseAmount = totalAmount - budgetAmount
+            val expenseAmount = totalAmount - budgetAmount
 
 
             // pieList.add(PieEntry(100f, "Total Amount"))
             val pieList = ArrayList<PieEntry>()
             pieList.add(PieEntry(totalAmount.toFloat(), "Total Amount"))
             pieList.add(PieEntry(budgetAmount.toFloat(), "Income"))
-            pieList.add(PieEntry(expanseAmount.toFloat(), "Expanse"))
+            pieList.add(PieEntry(expenseAmount.toFloat(), "Expense"))
 
 
             val colorSet = ArrayList<Int>()
@@ -92,7 +92,7 @@ class DashboardFragment : Fragment() {
                     tab.text = "İncome"
                 }
                 1 -> {
-                    tab.text = "Expanse"
+                    tab.text = "Expense"
                 }
             }
         }.attach()

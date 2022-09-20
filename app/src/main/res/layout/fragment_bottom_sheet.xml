@@ -22,11 +22,9 @@
         app:boxCornerRadiusTopEnd="8sp"
         app:boxCornerRadiusTopStart="8sp"
         app:boxStrokeWidth="0sp"
-        app:counterEnabled="true"
-        app:counterMaxLength="20"
         app:endIconMode="clear_text"
         app:boxStrokeColor="@color/blue"
-        app:hintTextColor="#000000"
+        app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -41,7 +39,7 @@
             android:textColor="@color/black"
             android:textColorHint="@color/blue"
             android:textSize="12sp"
-            app:counterMaxLength="20" />
+             />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -51,9 +49,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/amountBackground"
-        android:hint="Type"
         android:orientation="vertical"
+        app:endIconTint="@color/blue"
         android:padding="5dp"
+        android:textAlignment="center"
         android:textColorHint="@color/black"
         app:boxBackgroundColor="@color/white"
         app:boxCornerRadiusBottomEnd="8dp"
@@ -62,8 +61,9 @@
         app:boxCornerRadiusTopStart="8dp"
         app:boxStrokeColor="@color/blue"
         app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
         app:hintAnimationEnabled="true"
-        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Body1"
         app:hintTextColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/transactionAmount"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,10 +77,11 @@
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
             android:dropDownHeight="wrap_content"
+            android:dropDownSelector="@color/selected"
+            android:hint="Type"
             android:inputType="none"
             android:pointerIcon="arrow"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
             android:textSize="12sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,9 +100,7 @@
         app:boxCornerRadiusTopStart="8sp"
         app:boxStrokeWidth="0sp"
         app:boxStrokeColor="@color/blue"
-        app:counterEnabled="true"
-        app:counterMaxLength="20"
-        app:hintTextColor="#000000"
+        app:hintTextColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/productdesc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -112,7 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12sp"
             android:layout_marginEnd="12sp"
-            android:backgroundTint="#FFFFFF"
+            android:backgroundTint="@color/white"
             android:inputType="number"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -132,9 +131,7 @@
         app:boxCornerRadiusTopEnd="8sp"
         app:boxCornerRadiusTopStart="8sp"
         app:boxStrokeWidth="0sp"
-        app:counterEnabled="true"
-        app:counterMaxLength="20"
-        app:hintTextColor="#000000"
+        app:hintTextColor="@color/black"
         app:boxStrokeColor="@color/blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -146,7 +143,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12sp"
             android:layout_marginEnd="12sp"
-            android:backgroundTint="#FFFFFF"
+            android:backgroundTint="@color/white"
             android:textColor="@color/black"
             android:textSize="12sp"
             app:counterMaxLength="20" />

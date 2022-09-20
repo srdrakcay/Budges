@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.serdar.budges.adapter.IncomeAdapter
-import com.serdar.budges.databinding.FragmentExpanseDashBinding
 import com.serdar.budges.databinding.FragmentIncomeDashBinding
 import com.serdar.budges.ui.viewmodel.IncomeDashViewModel
 

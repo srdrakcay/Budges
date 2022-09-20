@@ -14,7 +14,7 @@ class TransactionViewModel(application: Application) : AndroidViewModel(applicat
 
 
     val readAllData: LiveData<List<Transaction>>
-    val readExpanseData: LiveData<List<Transaction>>
+    val readExpenseData: LiveData<List<Transaction>>
     val readIncomeData: LiveData<List<Transaction>>
 
 
@@ -25,7 +25,7 @@ class TransactionViewModel(application: Application) : AndroidViewModel(applicat
         val transactionDao = TransactionDatabase.getDatabase(application).transactionDao()
         repository = TransactionRepository(transactionDao)
         readAllData = transactionDao.readAllData()
-        readExpanseData = transactionDao.getExpanseList()
+        readExpenseData = transactionDao.getExpenseList()
         readIncomeData = transactionDao.getIncomeList()
 
 

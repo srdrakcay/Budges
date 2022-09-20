@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2655" />
+        <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/back.xml" value="0.3635" />
+        <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/backarrow.xml" value="0.3635" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/backround.xml" value="0.1575" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/bottom_bar.xml" value="0.129" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/bottom_nav_icon_color_selector.xml" value="0.2655" />
@@ -11,27 +13,35 @@
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/bottombar_icon_selected.xml" value="0.151" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/botton_bacground.xml" value="0.2615" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/button_bacground.xml" value="0.3675" />
+        <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/close_sheet.xml" value="0.3635" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/crypto_home.xml" value="0.322" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/currency.xml" value="0.2535" />
+        <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/delete.xml" value="0.3635" />
+        <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/down.xml" value="0.3635" />
+        <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/expanse.xml" value="0.3635" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/home_background.xml" value="0.1" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.191" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2655" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2655" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2655" />
+        <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/income.xml" value="0.3635" />
+        <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/money.xml" value="0.3635" />
+        <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/next.xml" value="0.3635" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/onbording_button.xml" value="0.3305" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/pay.xml" value="0.191" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/ripple.xml" value="0.3305" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/selected_tab.xml" value="0.2165" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/tab_layout.xml" value="0.126" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/total.xml" value="0.3675" />
+        <entry key="..\:/Users/user/Budges/app/src/main/res/drawable/up.xml" value="0.2455" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/activity_main.xml" value="0.3605072463768116" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/activity_notification.xml" value="0.3625" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/crypto_home.xml" value="0.43243243243243246" />
-        <entry key="..\:/Users/user/Budges/app/src/main/res/layout/crypto_layout.xml" value="0.33" />
-        <entry key="..\:/Users/user/Budges/app/src/main/res/layout/dialog_balance.xml" value="0.5" />
+        <entry key="..\:/Users/user/Budges/app/src/main/res/layout/crypto_layout.xml" value="0.5" />
+        <entry key="..\:/Users/user/Budges/app/src/main/res/layout/dialog_balance.xml" value="0.33" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/dropdown.xml" value="0.3614583333333333" />
-        <entry key="..\:/Users/user/Budges/app/src/main/res/layout/expanse_item.xml" value="0.25" />
+        <entry key="..\:/Users/user/Budges/app/src/main/res/layout/expanse_item.xml" value="0.75" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/fragment_bill.xml" value="0.25" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/fragment_bottom_bill.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.33" />
@@ -50,7 +60,7 @@
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/fragment_total_balance.xml" value="0.33" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/fragment_update.xml" value="0.33" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/fragment_view_pager.xml" value="0.296195652173913" />
-        <entry key="..\:/Users/user/Budges/app/src/main/res/layout/income_item.xml" value="0.3302238805970149" />
+        <entry key="..\:/Users/user/Budges/app/src/main/res/layout/income_item.xml" value="0.67" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/total_balance.xml" value="0.2259963768115942" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/total_income.xml" value="0.18" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/transaction_item.xml" value="0.25" />

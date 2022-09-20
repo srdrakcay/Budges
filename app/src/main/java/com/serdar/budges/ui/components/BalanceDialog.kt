@@ -64,7 +64,7 @@ class BalanceDialog : DialogFragment() {
             transactionName,
             transactionAmount.toDouble(),
             transactionDesc,
-            args.currentItem.incomeExpanseType
+            args.currentItem.incomeExpenseType
         )
         transactionViewModel.updateTransaction(updateTransaction)
         findNavController().navigate(R.id.action_balanceDialog_to_navigation_home)
