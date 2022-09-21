@@ -164,6 +164,8 @@
                 android:paddingRight="10dp"
                 android:text="UPDATE TRANSACTİON"
                 android:textColor="@color/white"
+                android:drawableStart="@drawable/update"
+                android:drawablePadding="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
