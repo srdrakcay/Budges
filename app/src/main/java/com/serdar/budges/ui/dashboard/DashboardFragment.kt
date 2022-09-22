@@ -43,18 +43,16 @@ class DashboardFragment : Fragment() {
     private fun pieChart() {
         transactionViewModel.readAllData.observe(requireActivity(), Observer { transactionList ->
             budgesAdapter.setDataTransaction(transactionList)
-
-            //room içine kaydettiğim dataları burada hesaplatıp pasta diliminde gösteriyorum
-            val totalAmount = transactionList.sumOf { it.amount }
-            val budgetAmount = transactionList.filter { it.amount > 0 }.sumOf { it.amount }
-            val expenseAmount = totalAmount - budgetAmount
+            val income =transactionList.filter { it.incomeExpenseType=="INCOME"  }.sumOf { it.amount }
+            val expanse =transactionList.filter { it.incomeExpenseType=="EXPENSE"  }.sumOf { it.amount }
+            val total = income - expanse
 
 
             // pieList.add(PieEntry(100f, "Total Amount"))
             val pieList = ArrayList<PieEntry>()
-            pieList.add(PieEntry(totalAmount.toFloat(), "Total Amount"))
-            pieList.add(PieEntry(budgetAmount.toFloat(), "Income"))
-            pieList.add(PieEntry(expenseAmount.toFloat(), "Expense"))
+            pieList.add(PieEntry(total.toFloat(), "Total Amount"))
+            pieList.add(PieEntry(income.toFloat(), "Income"))
+            pieList.add(PieEntry(expanse.toFloat(), "Expense"))
 
 
             val colorSet = ArrayList<Int>()
@@ -89,7 +87,7 @@ class DashboardFragment : Fragment() {
         TabLayoutMediator(binding.tabLayout, binding.dashView) { tab, position ->
             when (position) {
                 0 -> {
-                    tab.text = "İncome"
+                    tab.text = "Income"
                 }
                 1 -> {
                     tab.text = "Expense"

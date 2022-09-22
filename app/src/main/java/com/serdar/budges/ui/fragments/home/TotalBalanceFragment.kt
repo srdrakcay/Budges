@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.serdar.budges.R
 import com.serdar.budges.adapter.BudgesAdapter
 import com.serdar.budges.databinding.FragmentTotalBalanceBinding
+import com.serdar.budges.di.repository.TransactionRepository
 import com.serdar.budges.ui.viewmodel.TransactionViewModel
 
 
@@ -17,6 +18,7 @@ class TotalBalanceFragment : Fragment() {
     private val transactionViewModel by lazy { TransactionViewModel(requireActivity().application) }
     private lateinit var budgesAdapter: BudgesAdapter
     private lateinit var binding: FragmentTotalBalanceBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,9 +35,13 @@ class TotalBalanceFragment : Fragment() {
 
         transactionViewModel.readAllData.observe(requireActivity(), Observer { transactionList ->
             budgesAdapter.setDataTransaction(transactionList)
-            val totalAmount = transactionList.sumOf { it.amount }
-            binding.total.text = "$ %.2f".format(totalAmount)
+            val income =transactionList.filter { it.incomeExpenseType=="INCOME"  }.sumOf { it.amount }
+            val expanse =transactionList.filter { it.incomeExpenseType=="EXPENSE"  }.sumOf { it.amount }
+            val total=income-expanse
+            binding.total.text = "$ %.2f".format(total)
+
         })
+
     }
 
 }

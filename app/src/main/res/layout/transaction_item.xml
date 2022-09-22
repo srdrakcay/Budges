@@ -37,6 +37,7 @@
                     android:layout_marginStart="80dp"
                     android:layout_marginTop="15dp"
                     android:text="TextView"
+                    android:textAllCaps="true"
                     android:textColor="@color/itemText"
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"

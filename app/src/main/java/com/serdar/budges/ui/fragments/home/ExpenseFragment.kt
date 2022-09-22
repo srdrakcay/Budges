@@ -33,12 +33,10 @@ class ExpenseFragment : Fragment() {
             requireActivity(),
             Observer { transactionList ->
                 expenseAdapter.setExpanse(transactionList)
-
                 val expanseAmount = transactionList.sumOf { it.amount }
                 binding.expanse.text = "$ %.2f".format(expanseAmount)
-
-
             })
 
     }
+
 }
