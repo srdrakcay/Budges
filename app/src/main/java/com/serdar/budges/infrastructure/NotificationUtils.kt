@@ -42,7 +42,7 @@ object NotificationUtils {
         return NotificationCompat.Builder(context, CHANNEL_ID)
             .setContentTitle(title)
             .setContentText(description)
-            .setSmallIcon(R.drawable.bitcoin)
+            .setSmallIcon(R.drawable.notification)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
     }
 }

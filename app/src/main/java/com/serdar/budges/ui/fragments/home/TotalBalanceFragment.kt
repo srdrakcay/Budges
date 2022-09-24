@@ -35,6 +35,7 @@ class TotalBalanceFragment : Fragment() {
 
         transactionViewModel.readAllData.observe(requireActivity(), Observer { transactionList ->
             budgesAdapter.setDataTransaction(transactionList)
+
             val income =transactionList.filter { it.incomeExpenseType=="INCOME"  }.sumOf { it.amount }
             val expanse =transactionList.filter { it.incomeExpenseType=="EXPENSE"  }.sumOf { it.amount }
             val total=income-expanse
