@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Dashboard"
+        android:text="@string/dashboard"
         android:textColor="@color/black"
         android:textColorHighlight="@color/red"
         android:textSize="20sp"
