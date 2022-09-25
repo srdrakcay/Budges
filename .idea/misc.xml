@@ -43,7 +43,7 @@
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/crypto_layout.xml" value="0.5" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/dialog_balance.xml" value="0.33" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/dropdown.xml" value="0.3614583333333333" />
-        <entry key="..\:/Users/user/Budges/app/src/main/res/layout/expanse_item.xml" value="0.75" />
+        <entry key="..\:/Users/user/Budges/app/src/main/res/layout/expanse_item.xml" value="0.33748443337484435" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/fragment_bill.xml" value="0.25" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/fragment_bottom_bill.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.33" />
@@ -51,6 +51,8 @@
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/fragment_dashboard.xml" value="0.33" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/fragment_expanse.xml" value="0.5" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/fragment_expanse_dash.xml" value="0.1712962962962963" />
+        <entry key="..\:/Users/user/Budges/app/src/main/res/layout/fragment_expense.xml" value="0.3625" />
+        <entry key="..\:/Users/user/Budges/app/src/main/res/layout/fragment_expense_dash.xml" value="0.3625" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/fragment_first.xml" value="0.33" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/user/Budges/app/src/main/res/layout/fragment_income.xml" value="0.33" />
