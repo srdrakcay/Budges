@@ -25,7 +25,7 @@ You can track and change your Expenses in this application.You can also follow c
 - Json Pars
 - Repository
 - NotificationManager
-- Custom Drawable Button And Bottom Bar Style
+
 
 ## Design Features
 - Dots (Viewpager Slider)
