@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -21,11 +22,12 @@ class BudgesAdapter :
         val transactions = view.findViewById<TextView>(R.id.transaction)
         val amount = view.findViewById<TextView>(R.id.amount)
         val amountView = view.findViewById<ImageView>(R.id.amountView)
+        val card = view.findViewById<CardView>(R.id.delete)
 
         fun bind(transaction: Transaction) {
-            transactions.setText(transaction.transaction.toString())
-            amount.setText(transaction.amount.toString())
-            desc.setText(transaction.description.toString())
+            transactions.text = transaction.transaction.toString()
+            amount.text = transaction.amount.toString()
+            desc.text = transaction.description.toString()
 
         }
     }
@@ -34,31 +36,41 @@ class BudgesAdapter :
 
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.transaction_item, parent, false)
+
         return TransactionHolder(view)
     }
 
     override fun onBindViewHolder(holder: TransactionHolder, position: Int) {
         val transaction = transactionList[position]
         holder.bind(transaction)
-        holder.itemView.setOnClickListener {
-            val action = HomeFragmentDirections.actionNavigationHomeToUpdateFragment(transaction)
-            holder.itemView.findNavController().navigate(action)
+
+
+        holder.card.setOnClickListener {
+            val action = HomeFragmentDirections.actionNavigationHomeToBalanceDialog(transaction)
+            holder.card.findNavController().navigate(action)
+
+
         }
+
+
         val context = holder.amount.context
 
-        if (transaction.amount >= 0) {
+        if (transaction.incomeExpenseType == "INCOME") {
             holder.amount.text = "+$%.2f".format(transaction.amount)
             holder.amount.setTextColor(ContextCompat.getColor(context, R.color.green))
-            holder.amountView.setImageResource(R.drawable.profits)
+            holder.amountView.setImageResource(R.drawable.incomeline)
+            holder.desc.setTextColor(ContextCompat.getColor(context, R.color.green))
 
 
         } else {
             holder.amount.text = "-$%.2f".format(Math.abs(transaction.amount))
             holder.amount.setTextColor(ContextCompat.getColor(context, R.color.red))
-            holder.amountView.setImageResource(R.drawable.expansion)
+            holder.amountView.setImageResource(R.drawable.expensesline)
+            holder.desc.setTextColor(ContextCompat.getColor(context, R.color.red))
 
         }
         holder.transactions.text = transaction.transaction
+
 
 
     }

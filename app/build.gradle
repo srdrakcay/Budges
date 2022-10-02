@@ -5,6 +5,7 @@ plugins {
     id 'androidx.navigation.safeargs'
     id 'kotlin-parcelize'
 
+
 }
 
 android {
@@ -74,9 +75,6 @@ dependencies {
     //bar chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     
-    //lotti
-    implementation "com.airbnb.android:lottie:3.7.1"
-
 
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'

@@ -7,7 +7,6 @@ import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
 
-
 @Parcelize
 @Entity(tableName = "transactions")
 data class Transaction(
@@ -17,5 +16,6 @@ data class Transaction(
     @ColumnInfo(name = "transaction") val transaction: String,
     @ColumnInfo(name = "amaount") val amount: Double = 0.0,
     @ColumnInfo(name = "desciption") val description: String,
-    ) : Parcelable
+    @ColumnInfo(name = "incomeExpenseType") val incomeExpenseType: String
+) : Parcelable
 

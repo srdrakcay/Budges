@@ -11,7 +11,7 @@ interface TransactionDao {
     fun readAllData(): LiveData<List<Transaction>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun addTransaction(transaction: Transaction):Long
+    fun addTransaction(transaction: Transaction): Long
 
     @Update
     fun updateTransaction(transaction: Transaction)
@@ -22,6 +22,11 @@ interface TransactionDao {
     @Query("DELETE FROM transactions ")
     fun deleteAllTransaction()
 
+    @Query("SELECT * FROM transactions WHERE incomeExpenseType = 'EXPENSE' ")
+    fun getExpenseList(): LiveData<List<Transaction>>
+
+    @Query("SELECT * FROM transactions WHERE incomeExpenseType = 'INCOME' ")
+    fun getIncomeList(): LiveData<List<Transaction>>
 
 
 }

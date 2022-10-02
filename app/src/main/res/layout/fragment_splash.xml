@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.splash.SplashFragment" >
 
-    <com.airbnb.lottie.LottieAnimationView
+    <ImageView
         android:id="@+id/animationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,7 +14,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/pig" />
+        android:src="@drawable/logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

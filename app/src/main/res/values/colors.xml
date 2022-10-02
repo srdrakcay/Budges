@@ -9,4 +9,31 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#F81100</color>
     <color name="green">#19C620</color>
+    <color name="backroundGradyan">#3A78F2</color>
+    <color name="backroundGradyan1">#CDDDFC</color>
+    <color name="backround">#F9FBFC</color>
+    <color name="textWite">#EEF3FF</color>
+    <color name="amountBackground">#1E5CD4</color>
+    <color name="button">#3A78F2</color>
+    <color name="dots">#CDDDFC</color>
+    <color name="transactionHome">#CDDDFC</color>
+    <color name="transactionText">#6E6D6D</color>
+    <color name="transactionLine">#6E6D6D</color>
+    <color name="transactiontype">#EAEFFC</color>
+    <color name="bottomBar">#3A78F2</color>
+    <color name="cardamount">#5B88E0</color>
+    <color name="blue">#3A78F2</color>
+    <color name="item">#F5F7FB</color>
+    <color name="selected">#8AB0FB</color>
+    <color name="unselected">#CDDDFC</color>
+    <color name="chart">#ECF0FA</color>
+    <color name="itemText">#6E6D6D</color>
+    <color name="onBoardingText">#518AFE</color>
+    <color name="onBoardingTextSecond">#ADADAE</color>
+    <color name="onBoardingButton">#508AFE</color>
+    <color name="updateBackground">#1E5CD4</color>
+    <color name="updateAdd">#CBD9F5</color>
+
+
+
 </resources>

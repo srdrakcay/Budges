@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,19 +14,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:hint="Transaction"
-        android:paddingLeft="10sp"
-        android:paddingRight="10sp"
-        app:boxCornerRadiusBottomEnd="10sp"
+        android:hint="@string/transaction_sheet"
+        android:padding="5dp"
+        android:textColorHint="@color/black"
+        app:boxCornerRadiusBottomEnd="8sp"
         app:boxCornerRadiusBottomStart="8sp"
         app:boxCornerRadiusTopEnd="8sp"
         app:boxCornerRadiusTopStart="8sp"
         app:boxStrokeWidth="0sp"
-        app:counterEnabled="true"
-        app:counterMaxLength="20"
-        android:textColorHint="@color/black"
         app:endIconMode="clear_text"
-        app:hintTextColor="#000000"
+        app:boxStrokeColor="@color/blue"
+        app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -34,45 +32,83 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/transactionName"
             android:layout_width="match_parent"
-            android:layout_marginStart="20sp"
-            android:layout_marginEnd="20sp"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FFFFFF"
+            android:layout_marginStart="12sp"
+            android:layout_marginEnd="12sp"
+            android:backgroundTint="@color/backround"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/blue"
             android:textSize="12sp"
-            app:counterMaxLength="20" />
+             />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_faculty"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:endIconTint="@color/blue"
+        android:padding="5dp"
+        android:textColorHint="@color/black"
+        app:boxBackgroundColor="@color/white"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxStrokeColor="@color/blue"
+        app:boxStrokeWidth="0dp"
+        android:hint="@string/type"
+        app:boxStrokeWidthFocused="0dp"
+        app:hintAnimationEnabled="true"
+        app:hintTextColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/transactionAmount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productName">
+
+        <AutoCompleteTextView
+            android:id="@+id/txtDrop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:dropDownHeight="wrap_content"
+            android:dropDownSelector="@color/selected"
+            android:inputType="none"
+            android:pointerIcon="arrow"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/transactionAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11sp"
-        android:layout_marginBottom="20sp"
-        android:hint="Amount"
-        android:paddingLeft="10sp"
-        android:paddingRight="10sp"
-        app:boxCornerRadiusBottomEnd="10sp"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/amount_sheet"
+        android:padding="5dp"
+        android:textColorHint="@color/black"
+        app:boxCornerRadiusBottomEnd="8sp"
         app:boxCornerRadiusBottomStart="8sp"
         app:boxCornerRadiusTopEnd="8sp"
         app:boxCornerRadiusTopStart="8sp"
         app:boxStrokeWidth="0sp"
-        app:counterEnabled="true"
-        app:counterMaxLength="20"
-        android:textColorHint="@color/black"
-        app:hintTextColor="#000000"
+        app:boxStrokeColor="@color/blue"
+        app:hintTextColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/productdesc"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productName">
+        app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/transactionAmounts"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20sp"
-            android:layout_marginEnd="20sp"
-            android:backgroundTint="#FFFFFF"
+            android:layout_marginStart="12sp"
+            android:layout_marginEnd="12sp"
+            android:backgroundTint="@color/white"
+            android:inputType="number"
             android:textColor="@color/black"
             android:textSize="12sp"
             app:counterMaxLength="20" />
@@ -82,18 +118,17 @@
         android:id="@+id/productdesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Descripsion"
-        android:paddingLeft="10sp"
-        android:paddingRight="10sp"
+        android:hint="@string/descripsion_sheet"
+        android:layout_marginTop="8dp"
+        android:padding="5dp"
         android:textColorHint="@color/black"
-        app:boxCornerRadiusBottomEnd="10sp"
+        app:boxCornerRadiusBottomEnd="8sp"
         app:boxCornerRadiusBottomStart="8sp"
         app:boxCornerRadiusTopEnd="8sp"
         app:boxCornerRadiusTopStart="8sp"
         app:boxStrokeWidth="0sp"
-        app:counterEnabled="true"
-        app:counterMaxLength="20"
-        app:hintTextColor="#000000"
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="@color/blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/transactionAmount">
@@ -102,9 +137,9 @@
             android:id="@+id/transactionDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20sp"
-            android:layout_marginEnd="20sp"
-            android:backgroundTint="#FFFFFF"
+            android:layout_marginStart="12sp"
+            android:layout_marginEnd="12sp"
+            android:backgroundTint="@color/white"
             android:textColor="@color/black"
             android:textSize="12sp"
             app:counterMaxLength="20" />
@@ -119,14 +154,20 @@
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/productdesc">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="20sp"
-            android:background="@drawable/botton_bacground"
-            android:text="ADD TRANSACTİON" />
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:drawableStart="@drawable/add"
+            android:background="@drawable/button_bacground"
+            android:text="@string/add_sheet"
+            app:cornerRadius="6dp" />
     </LinearLayout>
 
     <ImageView

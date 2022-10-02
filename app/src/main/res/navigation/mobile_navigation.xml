@@ -14,24 +14,26 @@
             android:id="@+id/action_navigation_home_to_bottomSheetFragment"
             app:destination="@id/bottomSheetFragment" />
         <action
-            android:id="@+id/action_navigation_home_to_updateFragment"
-            app:destination="@id/updateFragment"
-            app:popUpTo="@id/navigation_home"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_navigation_home_to_balanceDialog"
+            app:destination="@id/balanceDialog" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.serdar.budges.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.serdar.budges.ui.currency.CurrencyFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_currency" />
-    <dialog
+   <dialog
         android:id="@+id/bottomSheetFragment"
         android:name="com.serdar.budges.ui.bottomsheet.BottomSheetFragment"
         android:label="fragment_bottom_sheet"
@@ -39,19 +41,16 @@
         <action
             android:id="@+id/action_bottomSheetFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
-    </dialog>
-    <fragment
-        android:id="@+id/updateFragment"
-        android:name="com.serdar.budges.ui.fragments.UpdateFragment"
-        android:label="fragment_update"
-        tools:layout="@layout/fragment_update" >
+   </dialog>
+    <dialog
+        android:id="@+id/balanceDialog"
+        android:name="com.serdar.budges.ui.components.BalanceDialog"
+        android:label="BalanceDialog" >
         <action
-            android:id="@+id/action_updateFragment_to_navigation_home"
-            app:destination="@id/navigation_home"
-            app:popUpTo="@id/navigation_home"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_balanceDialog_to_navigation_home"
+            app:destination="@id/navigation_home" />
         <argument
-            android:name="current"
+            android:name="currentItem"
             app:argType="com.serdar.budges.data.transaction.Transaction" />
-    </fragment>
+    </dialog>
 </navigation>
